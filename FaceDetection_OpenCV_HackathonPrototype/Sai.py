@@ -1,2 +1,0 @@
-print("Sai")
-print("Man")
