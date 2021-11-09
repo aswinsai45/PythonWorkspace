@@ -3,12 +3,11 @@ import random
 
 titrd = datetime.date.today()
 
-br = random.randint(2000, 9000)
-
 print("Welcome to Aires Booking")
 ch = int(input("Enter the number of passengers travelling "))
 
 if ch == 1:
+    gen = random.randint(2000, 9000)
     print('Enter your details')
     P0 = input("enter your name: ")
     DOB = (input("enter your Date of Birth in dd/mm/yyyy format: "))
@@ -39,51 +38,29 @@ if ch == 1:
                                                                                                               'Mexico' + '\n' + '4. UK' + '\n' + '5. India' + '\n')
     print('Departure/Arrival to limited countries due to Covid -19,\nwe suggest checking travel guidelines of the '
           'country you will be travelling to before booking your ticket')
-    li0 = ['USA', 'Canada', 'Mexico', 'UK', 'India']
+    li0 = [1, 2, 3, 4, 5]
     dep = input('Where are you departing from?')
-    if str in li0:
+    if dep not in li0:
+        print('Choose a valid country number of the country you wish to travel')
+    else:
         pass
-        if 'USA' in li0:
-            pass
-        elif 'UK' in li0:
-            pass
-        elif 'Canada' in li0:
-            pass
-        elif 'Mexico' in li0:
-            pass
-        elif 'India' in li0:
-            pass
-    elif print('Sorry, departure country unavailable/not found'):
-        exit()
-
     dest = input('Where do you wish to travel?: ')
-    if str in li0:
+    if dest not in li0:
+        print('Choose a valid country number of the country you wish to travel')
+    else:
         pass
-        if 'USA' in li0:
-            pass
-        elif 'UK' in li0:
-            pass
-        elif 'Canada' in li0:
-            pass
-        elif 'Mexico' in li0:
-            pass
-        elif 'India' in li0:
-            pass
-    elif print('Sorry, arrival country unavailable/not found'):
-        exit()
-
-
-    f = open("C:/Users/aswin/PycharmProjects/SchoolProject/BookingConf/p1", 'a+')
+    f = open("C:/Users/aswin/PycharmProjects/SchoolProject/BookingConf/" + str(gen), 'a+')
     f.write('PASSENGER 1: ' + '\n')
     f.write(
         'Name: ' + P0 + '\n' + 'Date of Birth: ' + DOB + '\n' 'Passport Number: ' + pno + '\n' 'Expiry Date : ' + pnex + '\n')
     f.write('Your Journey is on: ' + TrDate + '\n')
     f.write('Departure: ' + dep + '|' + 'Destination: ' + dest)
-    f.write("Your Boarding Pass Number is AX" + str(br) + '\n')
+    f.write("Your Boarding Pass Number is AX" + str(gen) + '\n')
     f.close()
     exit()
 ############# if CH2
 if ch == 2:
+    gen = random.randint(2000, 9000)
     P1 = input("Enter Name of Passenger 1: ")
     DOB1 = (input("enter your Date of Birth in dd/mm/yyyy format "))
     dobd = datetime.datetime.strptime(DOB1, "%d/%m/%Y").date()
@@ -133,13 +110,13 @@ if ch == 2:
     else:
         print("Renew your passport and try again")
         exit()
-    f = open("C:/Users/aswin/PycharmProjects/SchoolProject/BookingConf/.txt", 'a+')
+    f = open("C:/Users/aswin/PycharmProjects/SchoolProject/BookingConf/" + str(gen), 'a+')
     f.write('PASSENGER 1: ' + '\n')
     f.write(P1 + '\n' + DOB1 + '\n' + pno1 + '\n' + pnex1 + '\n')
-    f.write('Passenger 2: ' + '\n')
+    f.write('PASSENGER 2: ' + '\n')
     f.write(
         P2 + '\n' + 'Date of Birth: ' + DOB2 + '\n' + 'Passport Number: ' + pno2 + '\n' + 'Expiry Date: ' + pnex2 + '\n')
     f.write('\n' + 'Travel Info: ')
     f.write('Journey Date: ' + TrDate + '\n')
-    f.write("Your Boarding Pass Number is AX" + str(br))
+    f.write("Your Boarding Pass Number is AX" + str(gen))
     f.close()

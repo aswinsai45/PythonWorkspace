@@ -1,0 +1,6 @@
+f = open("C:/Users/aswin/Downloads/School/ClassXI/AirReserv/reservations", "a+")
+op = print("nmnmnm")
+p= print("skks")
+f.write(op)
+f.write(p)
+f.close()
