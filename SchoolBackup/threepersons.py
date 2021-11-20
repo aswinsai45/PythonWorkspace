@@ -4,13 +4,13 @@ import random
 titrd = datetime.date.today()
 
 gen = random.randint(2000, 9000)
-randf = random.randint(2252, 9252)
+randf = random.randint(22523, 92527)
 
-#P(0)
+# P(0)
 
 print('ENTER the DETAILS CAREFULLY')
-P0 = input("\nenter Passenger 1's name: ")
-DOB = (input("enter Passenger 1's Date of Birth in dd/mm/yyyy format: "))
+P0 = input("\nEnter Passenger 1's name: ")
+DOB = (input("Enter Passenger 1's Date of Birth in dd/mm/yyyy format: "))
 dobd = datetime.datetime.strptime(DOB, "%d/%m/%Y").date()
 
 if dobd >= titrd.today():
@@ -33,28 +33,7 @@ if dobd >= titrd.today():
 else:
     pass
 
-pno = input("Enter Passenger 1's Passport Number: ")
-pnex = (input("Enter expiration date of passport in dd/mm/yyyy format: "))
-pnext = datetime.datetime.strptime(pnex, "%d/%m/%Y").date()
-if pnext > titrd.today():
-    pass
-else:
-    chyn = input("\n" + "Invalid date/format. Date cannot be in the past, do you want to try again? [Y or N]")
-    if chyn == 'Y' or 'y':
-        print('\n' + "Please enter correctly this time or else you will be exited..")
-        pnex = (input("Expiry date of passport [dd/mm/yyyy]: "))
-        pnext = datetime.datetime.strptime(pnex, "%d/%m/%Y").date()
-        if pnext > titrd.today():
-            pass
-        else:
-            print('\n' + 'Sorry, date invalid, date cannot be in the past', pnex)
-            print('Please restart and try again')
-            exit()
-    if chyn == 'N' or 'n':
-        print('Okay, you will now be exited out of the program')
-        exit()
-
-#P(2)
+# P(2)
 
 print("PASSENGER 2: ")
 
@@ -83,28 +62,7 @@ if dobd >= titrd.today():
 else:
     pass
 
-pno1 = input("Enter Passenger 2's Passport Number: ")
-pnex1 = (input("Enter expiration date of passport in dd/mm/yyyy format: "))
-pnext = datetime.datetime.strptime(pnex1, "%d/%m/%Y").date()
-if pnext > titrd.today():
-    pass
-else:
-    chyn = input("\n" + "Invalid date/format. Date cannot be in the past, do you want to try again? [Y or N]")
-    if chyn == 'Y' or 'y':
-        print('\n' + "Please enter correctly this time or else you will be exited..")
-        pnex1 = (input("Expiry date of passport [dd/mm/yyyy]: "))
-        pnext = datetime.datetime.strptime(pnex1, "%d/%m/%Y").date()
-        if pnext > titrd.today():
-            pass
-        else:
-            print('\n' + 'Sorry, date invalid, date cannot be in the past', pnex)
-            print('Please restart and try again')
-            exit()
-    if chyn == 'N' or 'n':
-        print('Okay, you will now be exited out of the program')
-        exit()
-
-#P(3)
+# P(3)
 
 print("PASSENGER 2: ")
 
@@ -132,27 +90,6 @@ if dobd >= titrd.today():
 
 else:
     pass
-
-pno2 = input("Enter Passenger 3's Passport Number: ")
-pnex2 = (input("Enter expiration date of passport in dd/mm/yyyy format: "))
-pnext = datetime.datetime.strptime(pnex2, "%d/%m/%Y").date()
-if pnext > titrd.today():
-    pass
-else:
-    chyn = input("\n" + "Invalid date/format. Date cannot be in the past, do you want to try again? [Y or N]")
-    if chyn == 'Y' or 'y':
-        print('\n' + "Please enter correctly this time or else you will be exited..")
-        pnex1 = (input("Expiry date of passport [dd/mm/yyyy]: "))
-        pnext = datetime.datetime.strptime(pnex1, "%d/%m/%Y").date()
-        if pnext > titrd.today():
-            pass
-        else:
-            print('\n' + 'Sorry, date invalid, date cannot be in the past', pnex)
-            print('Please restart and try again')
-            exit()
-    if chyn == 'N' or 'n':
-        print('Okay, you will now be exited out of the program')
-        exit()
 
 print('\n DEPARTURE AND DESTINATION: ')
 TrDate = (input("enter departure date in dd/mm/yyyy format "))
@@ -188,9 +125,105 @@ print("Now enter your Arrival Location below\n")
 destco = input("Destination Country?: ")
 destci = input("Destination City?: ")
 
-print("1. Air India" + '\n' + "2. United Airlines" + '\n' + "3. Emirates" + '\n' + "4. Etihad Airways" + '\n' + "5. Qatar Airways" + '\n')
+if str(depco) != str(destco):
+    # Passenger 1
+    pno = input("Enter Passenger 1's Passport Number: ")
+    pnex = (input("Enter expiration date of passport [in dd/mm/yyyy format]: "))
+    pnext = datetime.datetime.strptime(pnex, "%d/%m/%Y").date()
+    if pnext > titrd.today():
+        pass
+    else:
+        print('Please enter N or n if you have to renew your passport')
+        chyn = input("\n" + "Invalid date/format. Date cannot be in the past, do you want to try again? [Y or N]")
+        if chyn == 'Y' or 'y':
+            print('\n' + "Please enter correctly this time or else you will be exited..")
+            pnex = (input("Expiry date of passport [dd/mm/yyyy]: "))
+            pnext = datetime.datetime.strptime(pnex, "%d/%m/%Y").date()
+            if pnext > titrd.today():
+                pass
+            else:
+                print('\n' + 'Sorry, date invalid, date cannot be in the past', pnex)
+                print('Please restart and try again')
+                print('You might want to consider renewing the passport - ', pno)
+                exit()
+        if chyn == 'N' or 'n':
+            print('Okay, you will now be exited out of the program')
+            exit()
 
+    # Passenger 2
+    pno1 = input("Enter Passenger 2's Passport Number: ")
+    pnex1 = (input("Enter expiration date of passport in dd/mm/yyyy format: "))
+    pnext = datetime.datetime.strptime(pnex1, "%d/%m/%Y").date()
+    if pnext > titrd.today():
+        pass
+    else:
+        print('Please enter N or n if you have to renew your passport')
+        chyn = input("\n" + "Invalid date/format. Date cannot be in the past, do you want to try again? [Y or N]")
+        if chyn == 'Y' or 'y':
+            print('\n' + "Please enter correctly this time or else you will be exited..")
+            pnex1 = (input("Expiry date of passport [dd/mm/yyyy]: "))
+            pnext = datetime.datetime.strptime(pnex1, "%d/%m/%Y").date()
+            if pnext > titrd.today():
+                pass
+            else:
+                print('\n' + 'Sorry, date invalid, date cannot be in the past', pnext)
+                print('You might want to consider renewing the passport - ', pno1)
+                print('Please restart and try again')
+                exit()
+        if chyn == 'N' or 'n':
+            print('Okay, you will now be exited out of the program')
+            exit()
 
+    # Passenger 3
+    pno2 = input("Enter Passenger 3's Passport Number: ")
+    pnex2 = (input("Enter expiration date of passport in dd/mm/yyyy format: "))
+    pnext = datetime.datetime.strptime(pnex2, "%d/%m/%Y").date()
+    if pnext > titrd.today():
+        pass
+    else:
+        print('Please enter N or n if you have to renew your passport')
+        chyn = input("\n" + "Invalid date/format. Date cannot be in the past, do you want to try again? [Y or N]")
+        if chyn == 'Y' or 'y':
+            print('\n' + "Please enter correctly this time or else you will be exited..")
+            pnex2 = (input("Expiry date of passport [dd/mm/yyyy]: "))
+            pnext = datetime.datetime.strptime(pnex2, "%d/%m/%Y").date()
+            if pnext > titrd.today():
+                pass
+            else:
+                print('\n' + 'Sorry, date invalid, date cannot be in the past', pnex)
+                print('You might want to consider renewing the passport - ', pno2)
+                print('Please restart and try again')
+                exit()
+        if chyn == 'N' or 'n':
+            print('Okay, you will now be exited out of the program')
+            exit()
+
+    print(
+        "1. Air India" + '\n' + "2. United Airlines" + '\n' + "3. Emirates" + '\n' + "4. Etihad Airways" + '\n' + "5. Qatar Airways" + '\n')
+
+    import testingairline
+
+    print("YOUR TICKET HAS BEEN BOOKED SUCCESSFULLY. YOUR TICKET NUMBER IS AX", str(gen))
+    f = open("C:/Users/aswin/PycharmProjects/SchoolProject/BookingConf/" + 'AX' + str(gen), 'a+')
+    f.write('PASSENGER 1- ' + '\n')
+    f.write(
+        'Name: ' + P0 + '\n' + 'Date of Birth: ' + DOB + '\n' 'Passport Number: ' + pno + '\n' 'Expiry Date : ' + pnex + '\n')
+    f.write('\nPASSENGER 2- ' + '\n')
+    f.write(
+        'Name: ' + P1 + '\n' + 'Date of Birth: ' + DOB1 + '\n' 'Passport Number: ' + pno1 + '\n' 'Expiry Date : ' + pnex1 + '\n')
+    f.write('\nPASSENGER 3- ')
+    f.write(
+        'Name: ' + P2 + '\n' + 'Date of Birth: ' + DOB2 + '\n' 'Passport Number: ' + pno2 + '\n' 'Expiry Date : ' + pnex2 + '\n')
+    f.write('Your Journey is on: ' + TrDate + '\n')
+    f.write('Airline: ' + testingairline.airline + ' | ' + 'Aircraft Number: ' + randf)
+    f.write('\nDeparture: ' + depci + ', ' + depco + '  |  ' + 'Destination: ' + destci + ', ' + destco + '\n')
+    f.write("\nYour Boarding Pass Number is AX" + str(gen) + '\n')
+    f.close()
+    exit()
+else:
+    pass
+print(
+    "1. Air India" + '\n' + "2. United Airlines" + '\n' + "3. Emirates" + '\n' + "4. Etihad Airways" + '\n' + "5. Qatar Airways" + '\n')
 
 import testingairline
 
@@ -198,15 +231,16 @@ print("YOUR TICKET HAS BEEN BOOKED SUCCESSFULLY. YOUR TICKET NUMBER IS AX", str(
 f = open("C:/Users/aswin/PycharmProjects/SchoolProject/BookingConf/" + 'AX' + str(gen), 'a+')
 f.write('PASSENGER 1: ' + '\n')
 f.write(
-    'Name: ' + P0 + '\n' + 'Date of Birth: ' + DOB + '\n' 'Passport Number: ' + pno + '\n' 'Expiry Date : ' + pnex + '\n')
+    'Name: ' + P0 + '\n' + 'Date of Birth: ' + DOB + '\n')
 f.write('\nPASSENGER 2: ' + '\n')
 f.write(
-    'Name: ' + P1 + '\n' + 'Date of Birth: ' + DOB1 + '\n' 'Passport Number: ' + pno1 + '\n' 'Expiry Date : ' + pnex1 + '\n')
-#for person 3
+    'Name: ' + P1 + '\n' + 'Date of Birth: ' + DOB1 + '\n')
+# for person 3
 f.write('\nPASSENGER 3: ' + '\n')
 f.write(
-    'Name: ' + P2 + '\n' + 'Date of Birth: ' + DOB2 + '\n' 'Passport Number: ' + pno2 + '\n' 'Expiry Date : ' + pnex2 + '\n')
+    'Name: ' + P2 + '\n' + 'Date of Birth: ' + DOB2)
 f.write('Your Journey is on: ' + TrDate + '\n')
+f.write('Airline: ' + testingairline.airline + ' | ' + 'Aircraft Number: ' + randf)
 f.write('\nDeparture: ' + depci + ', ' + depco + '  |  ' + 'Destination: ' + destci + ', ' + destco + '\n')
 f.write("\nYour Boarding Pass Number is AX" + str(gen) + '\n')
 f.close()
