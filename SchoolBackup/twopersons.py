@@ -15,22 +15,16 @@ DOB = (input("enter Passenger 1's Date of Birth [dd/mm/yyyy]: "))
 dobd = datetime.datetime.strptime(DOB, "%d/%m/%Y").date()
 
 if dobd >= titrd.today():
-    print("Cannot choose a date in the future, -", DOB, "\n\nPlease try again//\n")
-    chdob = input("Do you want to try again? [Enter Y or N]: ")
-    if chdob == 'Y' or 'y':
-        print("\nEnter the date correctly this time, or else you will be exited// ")
-        DOB = input("Enter Date of Birth in dd/mm/yyyy format: ")
-        dobd = datetime.datetime.strptime(DOB, "%d/%m/%Y").date()
-        if dobd < titrd.today():
-            pass
-        else:
-            print("Cannot choose a date in the future, -", DOB)
-            print("Sorry, please restart and try again//")
-            exit()
-    elif chdob == 'N' or 'n':
-        print('Okay, you will now be exited out of the program')
+    print("Cannot choose a date in the future, -", DOB, "| Please try again..\n")
+    print("\nEnter the date correctly this time, or else you will be exited// ")
+    DOB = input("Enter Date of Birth in dd/mm/yyyy format: ")
+    dobd = datetime.datetime.strptime(DOB, "%d/%m/%Y").date()
+    if dobd < titrd.today():
+        pass
+    else:
+        print("Cannot choose a date in the future, -", DOB)
+        print("Sorry, please restart and try again//")
         exit()
-
 else:
     pass
 
@@ -45,22 +39,16 @@ DOB1 = (input("enter Passenger 2's DOB in dd/mm/yyyy format: "))
 dobd = datetime.datetime.strptime(DOB1, "%d/%m/%Y").date()
 
 if dobd >= titrd.today():
-    print("Cannot choose a date in the future, -", DOB, "\n\nPlease try again//\n")
-    chdob = input("Do you want to try again? [Enter Y or N]: ")
-    if chdob == 'Y' or 'y':
-        print("\nEnter the date correctly this time, or else you will be exited// ")
-        DOB = input("Enter Date of Birth in dd/mm/yyyy format: ")
-        dobd = datetime.datetime.strptime(DOB1, "%d/%m/%Y").date()
-        if dobd < titrd.today():
-            pass
-        else:
-            print("Cannot choose a date in the future, -", DOB1)
-            print("Sorry, please restart and try again//")
-            exit()
-    elif chdob == 'N' or 'n':
-        print('Okay, you will now be exited out of the program')
+    print("Cannot choose a date in the future, -", DOB, "| Please try again..\n")
+    print("\nEnter the date correctly this time, or else you will be exited// ")
+    DOB = input("Enter Date of Birth in dd/mm/yyyy format: ")
+    dobd = datetime.datetime.strptime(DOB1, "%d/%m/%Y").date()
+    if dobd < titrd.today():
+        pass
+    else:
+        print("Cannot choose a date in the future, -", DOB1)
+        print("Sorry, please restart and try again//")
         exit()
-
 else:
     pass
 
@@ -71,18 +59,13 @@ if trdated >= titrd.today():
     pass
 else:
     print("Cannot choose a date in the past, -", TrDate + '\n')
-    chtr = input("Do you want to try try again? [Enter Y or N]: ")
-    if chtr == 'Y' or 'y':
-        TrDate = (input("enter departure date in dd/mm/yyyy format: "))
-        trdated = datetime.datetime.strptime(TrDate, "%d/%m/%Y").date()
-        if trdated >= titrd.today():
-            pass
-        else:
-            print('\n' + 'Sorry, date invalid, date cannot be in the past')
-            print('Please restart and try again')
-            exit()
-    elif chtr == 'N' or 'n':
-        print('Okay, you will now be exited out of the program')
+    TrDate = (input("enter departure date in dd/mm/yyyy format: "))
+    trdated = datetime.datetime.strptime(TrDate, "%d/%m/%Y").date()
+    if trdated >= titrd.today():
+        pass
+    else:
+        print('\n' + 'Sorry, date invalid, date cannot be in the past')
+        print('Please restart and try again')
         exit()
 
 # Departure and Arrival
@@ -109,21 +92,22 @@ if str(depco) != str(destco):
         pass
     else:
         print('Please enter N or n if you have to renew your passport')
-        chyn = input("\n" + "Invalid date/format. Date cannot be in the past, do you want to try again? [Y or N]")
-        if chyn == 'Y' or 'y':
-            print('\n' + "Please enter correctly this time or else you will be exited//")
+        choice = input('Do you have to renew your passport? [Y or N]: ')
+        if choice == 'Y' or 'y':
+            print('Okay')
+            exit()
+        else:
+            pass
+            print('\n' + "Please enter correctly this time or else you will be exited..")
             pnex = (input("Expiry date of passport [dd/mm/yyyy]: "))
             pnext = datetime.datetime.strptime(pnex, "%d/%m/%Y").date()
             if pnext > titrd.today():
                 pass
             else:
-                print('\n' + 'Sorry, date invalid, date cannot be in the past', pnex)
+                print('\n' + 'Sorry, date invalid, date cannot be in the past', pnext)
                 print('You might want to consider renewing the passport - ', pno)
                 print('Please restart and try again')
                 exit()
-        if chyn == 'N' or 'n':
-            print('Okay, you will now be exited out of the program')
-            exit()
     # second chance for Passenger 2
     pno1 = input("Enter Passenger 2's Passport Number: ")
     pnex1 = (input("Enter expiration date of passport in dd/mm/yyyy format: "))
@@ -131,26 +115,29 @@ if str(depco) != str(destco):
     if pnext > titrd.today():
         pass
     else:
-        chyn = input("\n" + "Invalid date/format. Date cannot be in the past, do you want to try again? [Y or N]")
-        if chyn == 'Y' or 'y':
+        print('\n' + "Please enter correctly this time or else you will be exited..")
+        choice = input('Do you have to renew your passport? [Y or N]: ')
+        if choice == 'Y' or 'y':
+            print('Okay')
+            exit()
+        else:
+            pass
             print('\n' + "Please enter correctly this time or else you will be exited..")
             pnex1 = (input("Expiry date of passport [dd/mm/yyyy]: "))
             pnext = datetime.datetime.strptime(pnex1, "%d/%m/%Y").date()
             if pnext > titrd.today():
                 pass
             else:
-                print('\n' + 'Sorry, date invalid, date cannot be in the past', pnex)
-                print('You might want to consider renewing your passport - ', pno1)
+                print('\n' + 'Sorry, date invalid, date cannot be in the past', pnext)
+                print('You might want to consider renewing the passport - ', pno1)
                 print('Please restart and try again')
                 exit()
-        if chyn == 'N' or 'n':
-            print('Okay, you will now be exited out of the program')
-            exit()
-
     print(
-        "1. Air India" + '\n' + "2. United Airlines" + '\n' + "3. Emirates" + '\n' + "4. Etihad Airways" + '\n' + "5. Qatar Airways" + '\n')
+            "1. Air India" + '\n' + "2. United Airlines" + '\n' + "3. Emirates" + '\n' + "4. Etihad Airways" + '\n' + "5. Qatar Airways" + '\n')
 
     import testingairline
+
+    import Payment
 
     # Print in file with passport details
 
@@ -165,16 +152,24 @@ if str(depco) != str(destco):
     f.write('Airline: ' + testingairline.airline + ' | ' + 'Aircraft Number: ' + randf)
     f.write('Your Journey is on: ' + TrDate + '\n')
     f.write('\nDeparture: ' + depci + ', ' + depco + '  |  ' + 'Destination: ' + destci + ', ' + destco + '\n')
+    f.write(Payment.paid)
     f.write("\nYour Boarding Pass Number is AX" + str(gen) + '\n')
     f.close()
     exit()
 
 else:
     pass
+
 print(
     "1. Air India" + '\n' + "2. United Airlines" + '\n' + "3. Emirates" + '\n' + "4. Etihad Airways" + '\n' + "5. Qatar Airways" + '\n')
 
+# airline selection
+
 import testingairline
+
+# payment options
+
+import Payment
 
 # Print in file without passport details
 
@@ -189,6 +184,7 @@ f.write(
 f.write('Your Journey is on: ' + TrDate + '\n')
 f.write('Airline: ' + testingairline.airline + ' | ' + 'Aircraft Number: ' + randf)
 f.write('\nDeparture: ' + depci + ', ' + depco + '  |  ' + 'Destination: ' + destci + ', ' + destco + '\n')
+f.write(Payment.paid)
 f.write("\nYour Boarding Pass Number is AX" + str(gen) + '\n')
 f.close()
 exit()
