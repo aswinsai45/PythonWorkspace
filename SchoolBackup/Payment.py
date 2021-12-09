@@ -4,7 +4,7 @@ import random
 
 price = random.randint(12542, 50000)
 
-print('\nYour ticket price will be: ', price)
+print('\nYour ticket price will be: ₹', price)
 
 print('Now, please pay with your Debit/Credit Card here')
 
@@ -21,17 +21,17 @@ else:
     else:
         print('Sorry, you have entered incorrectly the 2nd time. You will now be exited. Please restart')
         exit()
-cardexpdt = input('Enter expiry date [dd/mm/yyyy]:')
-cardValidation = datetime.datetime.strptime(cardexpdt, "%d/%m/%Y").date()
+cardExp = input('Enter expiry date [dd/mm/yyyy]:')
+cardValidation = datetime.datetime.strptime(cardExp, "%d/%m/%Y").date()
 if cardValidation > datetime.date.today():
     pass
 elif cardValidation == datetime.date.today():
     print("Don't forget to renew your card!")
 else:
-    print("Cannot choose a date in the past, -", cardexpdt + '\n')
+    print("Cannot choose a date in the past, -", cardExp + '\n')
     print("Try again")
-    cardexpdt = input('Enter expiry date [dd/mm/yyyy]:')
-    cardValidation = datetime.datetime.strptime(cardexpdt, "%d/%m/%Y").date()
+    cardExp = input('Enter expiry date [dd/mm/yyyy]:')
+    cardValidation = datetime.datetime.strptime(cardExp, "%d/%m/%Y").date()
     if cardValidation >= datetime.date.today():
         pass
     else:
@@ -50,4 +50,4 @@ else:
         print('Invalid CVV for the 2nd time, you will now be exited. please restart')
         exit()
 
-paid = print('Paid by:\n', nameOnCard + '\n' + card_number + '\n' + 'Transaction Approved for ', price)
+paid = print('Paid by: ', nameOnCard + ' | ' + 'Card Number:' + card_number + ' | ' + 'Transaction Approved for ' + '| ' + ('₹' + str(price)))

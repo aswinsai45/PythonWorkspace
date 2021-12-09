@@ -9,21 +9,21 @@ action = input('What would you like to do?\n 1. Book a ticket\n 2. Retrieve a ti
 # Showing available commands
 
 # retrieves a ticket
-if action == str('retrieve') and str('Retrieve'):
-    bpass = input('Enter boarding pass number here: ')
-    file_exist = os.path.exists('C:/Users/aswin/PycharmProjects/SchoolProject/BookingConf/' + bpass)
+if action == str('retrieve'):
+    boardingPass = input('Enter boarding pass number here: ')
+    file_exist = os.path.exists('C:/Users/aswin/PycharmProjects/PythonWorkspace/SchoolBackup/BookingConf/' + boardingPass)
     if file_exist:
         pass
     else:
         print('Booking Cancelled/Not Found')
         exit()
 
-    file = open('C:/Users/aswin/PycharmProjects/SchoolProject/BookingConf/' + bpass, 'r')
+    file = open('C:/Users/aswin/PycharmProjects/PythonWorkspace/SchoolBackup/BookingConf/' + boardingPass, 'r')
     s = file.read()
     print(s)
 
 # Books a Ticket
-elif action == str('book') and str('Book'):
+elif action == str('book'):
     pass
     ch = int(input("\nEnter the number of people travelling [up-to 3]: "))
     if ch == 1:
@@ -37,11 +37,11 @@ elif action == str('book') and str('Book'):
         exit()
 
 # Moves a ticket to a cancelled folder
-elif action == str('cancel') and str('Cancel'):
-    bpassc = input('Please enter boarding pass number here: ')
+elif action == str('cancel'):
+    boardingPassCancel = input('Please enter boarding pass number here: ')
 
-    shutil.move('C:/Users/aswin/PycharmProjects/SchoolProject/BookingConf/' + bpassc, 'C:/Users/aswin/PycharmProjects'
-                                                                                      '/SchoolProject/BookingConf'
-                                                                                      '/Cancelled')
-    print('Done! Ticket ' + bpassc + ' has been cancelled')
+    shutil.move('C:/Users/aswin/PycharmProjects/PythonWorkspace/SchoolBackup/BookingConf/' + boardingPassCancel, 'C:/Users/aswin/PycharmProjects/PythonWorkspace/SchoolBackup/BookingConf/Cancelled')
+    print('Done! Ticket ' + boardingPassCancel + ' has been cancelled')
+    exit()
+elif print('Sorry command not available'):
     exit()
