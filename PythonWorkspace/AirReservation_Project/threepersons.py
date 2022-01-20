@@ -181,7 +181,11 @@ if str(departureCountry) != str(destinationCountry):
     import Payment
 
     print("YOUR TICKET HAS BEEN BOOKED SUCCESSFULLY. YOUR TICKET NUMBER IS AX", str(boardGen))
+<<<<<<< HEAD
     f = open("C:/Users/aswin/PycharmProjects/School Project/AirReservation_Project/ConfirmedTickets" + 'AX' + str(boardGen), 'w')
+=======
+    f = open("C:/Users/aswin/PycharmProjects/PythonWorkspace/SchoolBackup/BookingConf/" + 'AX' + str(boardGen), 'w')
+>>>>>>> 88746f8df7976d65c370e918b5c3fcf90128382f
     f.write('PASSENGER 1- ' + '\n')
     f.write(
         'Name: ' + passenger1 + '\n' + 'Date of Birth: ' + DOB + '\n' 'Passport Number: ' + passport1 + '\n' 'Expiry Date : ' + passportExp1 + '\n')
@@ -207,7 +211,11 @@ import testingairline
 import Payment
 
 print("YOUR TICKET HAS BEEN BOOKED SUCCESSFULLY. YOUR TICKET NUMBER IS AX", str(boardGen))
+<<<<<<< HEAD
 f = open("C:/Users/aswin/PycharmProjects/School Project/AirReservation_Project/ConfirmedTickets" + 'AX' + str(boardGen), 'w')
+=======
+f = open("C:/Users/aswin/PycharmProjects/PythonWorkspace/SchoolBackup/BookingConf/" + 'AX' + str(boardGen), 'w')
+>>>>>>> 88746f8df7976d65c370e918b5c3fcf90128382f
 f.write('PASSENGER 1: ' + '\n')
 f.write(
     'Name: ' + passenger1 + '\n' + 'Date of Birth: ' + DOB + '\n')

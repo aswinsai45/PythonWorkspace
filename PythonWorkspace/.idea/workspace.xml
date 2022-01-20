@@ -1,7 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="711adb21-e808-49e0-a18c-4c8867cfd032" name="Changes" comment="" />
+    <list default="true" id="711adb21-e808-49e0-a18c-4c8867cfd032" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../School Project/AirReservation_Project/BookingConf/Cancelled/AX8136" beforeDir="false" afterPath="$PROJECT_DIR$/../School Project/AirReservation_Project/BookingConf/Cancelled/AX8136" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../School Project/AirReservation_Project/airReservation.py" beforeDir="false" afterPath="$PROJECT_DIR$/../School Project/AirReservation_Project/airReservation.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../School Project/AirReservation_Project/singleperson.py" beforeDir="false" afterPath="$PROJECT_DIR$/../School Project/AirReservation_Project/singleperson.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../School Project/AirReservation_Project/threepersons.py" beforeDir="false" afterPath="$PROJECT_DIR$/../School Project/AirReservation_Project/threepersons.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../School Project/AirReservation_Project/twopersons.py" beforeDir="false" afterPath="$PROJECT_DIR$/../School Project/AirReservation_Project/twopersons.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
