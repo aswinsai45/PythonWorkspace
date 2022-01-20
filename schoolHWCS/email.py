@@ -1,12 +1,22 @@
-n = int(input("How many emails do you want to add?: "))
+emailID = tuple()
+user = tuple()
+domain = tuple()
 
-print('Enter "stop" to stop the program')
-i = 0
-while i < n:
-    email = str(input("Enter email ID: "))
-    tup1 = email.__add__(email)
+n = int(input("How many emailID ids you want to enter?: "))
+for i in range(0, n):
+    email = input("Enter the Email(s) here: ")
 
-    i = i + 1
+    emailID = emailID + (email,)
 
-    print(tup1)
+    split = email.split("@")
+    user = user + (split[0],)
+    domain = domain + (split[1],)
 
+print("\nEmails: ")
+print(emailID)
+
+print("\nUsers:")
+print(user)
+
+print("\ndomains:")
+print(domain)
