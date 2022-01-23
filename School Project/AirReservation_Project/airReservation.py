@@ -11,14 +11,14 @@ action = input('What would you like to do?\n 1. Book a ticket\n 2. Retrieve a ti
 # retrieves a ticket
 if action == str('retrieve'):
     boardingPass = input('Enter boarding pass number here: ')
-    file_exist = os.path.exists('C:/Users/aswin/PycharmProjects/PythonWorkspace/SchoolBackup/BookingConf/' + boardingPass)
+    file_exist = os.path.exists('C:/Users/aswin/PycharmProjects/School Project/AirReservation_Project/BookingConf/' + boardingPass)
     if file_exist:
         pass
     else:
         print('Booking Cancelled/Not Found')
         exit()
 
-    file = open('C:/Users/aswin/PycharmProjects/PythonWorkspace/SchoolBackup/BookingConf/' + boardingPass, 'r')
+    file = open('C:/Users/aswin/PycharmProjects/School Project/AirReservation_Project/BookingConf/' + boardingPass, 'r')
     s = file.read()
     print(s)
 

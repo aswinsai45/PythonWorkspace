@@ -1,17 +1,15 @@
 import datetime
 import random
 
-listofairlines = ['Air India', 'United Airlines', 'Emirates', 'Etihad Airways', 'Qatar Airways']
+listofairlines = ['Air India', 'United Airlines', 'Emirates', 'Etihad Airways', 'Qatar Airways', 'IndiGo', 'SpiceJet', 'Vistara Airlines']
+print('The available airlines are: ', '\n', listofairlines)
 airline = input("Enter your desired Airline's name here: ")
 if airline in listofairlines:
     pass
 else:
     print("Airline Unavailable/Incorrect. Please try again" + '\n')
-    print("Now choose your desired Airline" + '\n'
-                                              "1. Air India" + '\n' + "2. United Airlines" + '\n' + "3. Emirates" + '\n' + "4. Etihad Airways" + '\n' + "5. Qatar Airways" + '\n')
-
-    listofairlines = ['Air India', 'United Airlines', 'Emirates', 'Etihad Airways', 'Qatar Airways']
-    print("Enter Airline name correctly this time or else you will be exited.." + '\n')
+    print("Now choose your desired Airline correctly this time or else you will be exited..")
+    print('The available airlines are: ', '\n', listofairlines)
     airline = input("Enter your desired Airline's name here: ")
     if airline in listofairlines:
         pass
@@ -47,19 +45,10 @@ else:
     flch = input('Sorry, time not available.. Do you want to try again?[Y or N]: ')
     if flch == 'Y' or 'y':
         print('INCORRECT INPUTS WILL NOW BE EXITED')
-        randh = random.randint(1, 23)
-        randm = random.randint(0, 59)
-        ti = datetime.time(randh, randm, 0)
         print(str(ti))
 
-        randh1 = random.randint(1, 23)
-        randm1 = random.randint(0, 59)
-        ti1 = datetime.time(randh1, randm1, 0)
         print(str(ti1))
 
-        randh2 = random.randint(1, 23)
-        randm2 = random.randint(0, 59)
-        ti2 = datetime.time(randh2, randm2, 0)
         print(str(ti2))
 
         fltime = input('Type in any of the time shown above to book your flight: ')

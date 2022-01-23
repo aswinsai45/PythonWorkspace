@@ -1,4 +1,3 @@
-from itertools import count
 import datetime
 import random
 
@@ -10,16 +9,16 @@ print('Now, please pay with your Debit/Credit Card here')
 
 nameOnCard = input('Name on Card: ')
 card_number = str(input('16- Digit Credit/Debit card number: '))
-if len(card_number) == 16:
+cardLength = len(card_number)
+if cardLength == 16:
     pass
 else:
     print('Invalid Number, try again: ')
-    print('Enter a 16 Digit Card Number: ')
     card_number = int(input('16- Digit Credit/Debit card number: '))
-    if count(card_number) == 16:
+    if cardLength == 16:
         pass
     else:
-        print('Sorry, you have entered incorrectly the 2nd time. You will now be exited. Please restart')
+        print('Sorry, you have entered incorrectly for the 2nd time. You will now be exited. Please restart')
         exit()
 cardExp = input('Enter expiry date [dd/mm/yyyy]:')
 cardValidation = datetime.datetime.strptime(cardExp, "%d/%m/%Y").date()

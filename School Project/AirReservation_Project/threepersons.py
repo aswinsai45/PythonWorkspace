@@ -8,7 +8,7 @@ flightGen = random.randint(22523, 92527)
 
 # P(0)
 
-print('ENTER the DETAILS CAREFULLY')
+print('ENTER YOUR DETAILS CAREFULLY')
 passenger1 = input("\nEnter Passenger 1's name: ")
 DOB = (input("Enter Passenger 1's Date of Birth in dd/mm/yyyy format: "))
 validDOB = datetime.datetime.strptime(DOB, "%d/%m/%Y").date()
@@ -32,9 +32,9 @@ else:
 
 print("PASSENGER 2: ")
 
-print('ENTER THE DETAILS CAREFULLY')
+print('Enter THE DETAILS CAREFULLY')
 passenger2 = input("\nEnter Passenger 2's name: ")
-DOB2 = (input("enter Passenger 2's DOB in dd/mm/yyyy format: "))
+DOB2 = (input("Enter Passenger 2's DOB in dd/mm/yyyy format: "))
 validDOB = datetime.datetime.strptime(DOB2, "%d/%m/%Y").date()
 
 if validDOB >= timeValidator.today():
@@ -55,9 +55,9 @@ else:
 
 print("PASSENGER 2: ")
 
-print('ENTER THE DETAILS CAREFULLY')
+print('Enter THE DETAILS CAREFULLY')
 P2 = input("\nEnter Passenger 2's name: ")
-DOB2 = (input("enter Passenger 2's DOB in dd/mm/yyyy format: "))
+DOB2 = (input("Enter Passenger 2's DOB in dd/mm/yyyy format: "))
 validDOB = datetime.datetime.strptime(DOB2, "%d/%m/%Y").date()
 
 if validDOB >= timeValidator.today():
@@ -75,13 +75,13 @@ else:
     pass
 
 print('\n DEPARTURE AND DESTINATION: ')
-travelDate = (input("enter departure date in dd/mm/yyyy format "))
+travelDate = (input("Enter departure date in dd/mm/yyyy format "))
 travelValidation = datetime.datetime.strptime(travelDate, "%d/%m/%Y").date()
 if travelValidation >= timeValidator.today():
     pass
 else:
     print("Cannot choose a date in the past, -", travelDate + '\n')
-    travelDate = (input("enter departure date in dd/mm/yyyy format: "))
+    travelDate = (input("Enter departure date in dd/mm/yyyy format: "))
     travelValidation = datetime.datetime.strptime(travelDate, "%d/%m/%Y").date()
     if travelValidation >= timeValidator.today():
         pass
@@ -94,11 +94,11 @@ print(
     '\n' + 'Departure/Arrival to limited countries due to Covid -19,\n we suggest checking with the guidelines of '
            'the place you are travelling to\n')
 
-print("Now enter your Departure Location below")
+print("Now Enter your Departure Location below")
 departureCountry = input("Departing Country?: " + '\n')
 departureCity = input("Departing City?: " + '\n')
 
-print("Now enter your Arrival Location below\n")
+print("Now Enter your Arrival Location below\n")
 destinationCountry = input("Destination Country?: ")
 destinationCity = input("Destination City?: ")
 
@@ -110,7 +110,7 @@ if str(departureCountry) != str(destinationCountry):
     if passportExpValidation > timeValidator.today():
         pass
     else:
-        print('Please enter N or n if you have to renew your passport')
+        print('Please Enter N or n if you have to renew your passport')
         choice = input("Do you have to renew your passport? [Y or N]")
         if choice == 'Y' or 'y':
             print('Okay')
@@ -131,14 +131,14 @@ if str(departureCountry) != str(destinationCountry):
     if passportExpValidation > timeValidator.today():
         pass
     else:
-        print('Please enter N or n if you have to renew your passport')
+        print('Please Enter N or n if you have to renew your passport')
         choice = input('Do you have to renew your passport? [Y or N]: ')
         if choice == 'Y' or 'y':
             print('Okay')
             exit()
         else:
             pass
-        print('\n' + "Please enter correctly this time or else you will be exited..")
+        print('\n' + "Please Enter correctly this time or else you will be exited..")
         passportExp2 = (input("Expiry date of passport [dd/mm/yyyy]: "))
         passportExpValidation = datetime.datetime.strptime(passportExp2, "%d/%m/%Y").date()
         if passportExpValidation > timeValidator.today():
@@ -155,14 +155,14 @@ if str(departureCountry) != str(destinationCountry):
     if passportExpValidation > timeValidator.today():
         pass
     else:
-        print('Please enter N or n if you have to renew your passport')
+        print('Please Enter N or n if you have to renew your passport')
         choice = input('Do you have to renew your passport? [Y or N]: ')
         if choice == 'Y' or 'y':
             print('Okay')
             exit()
         else:
             pass
-        print('\n' + "Please enter correctly this time or else you will be exited..")
+        print('\n' + "Please Enter correctly this time or else you will be exited..")
         passportExp3 = (input("Expiry date of passport [dd/mm/yyyy]: "))
         passportExpValidation = datetime.datetime.strptime(passportExp3, "%d/%m/%Y").date()
         if passportExpValidation > timeValidator.today():
@@ -173,15 +173,12 @@ if str(departureCountry) != str(destinationCountry):
             print('Please restart and try again')
             exit()
 
-    print(
-            "1. Air India" + '\n' + "2. United Airlines" + '\n' + "3. Emirates" + '\n' + "4. Etihad Airways" + '\n' + "5. Qatar Airways" + '\n')
+    import airline_Timing
 
-    import testingairline
-
-    import Payment
+    import payment
 
     print("YOUR TICKET HAS BEEN BOOKED SUCCESSFULLY. YOUR TICKET NUMBER IS AX", str(boardGen))
-    f = open("C:/Users/aswin/PycharmProjects/PythonWorkspace/SchoolBackup/BookingConf/" + 'AX' + str(boardGen), 'w')
+    f = open("\nC:/Users/aswin/PycharmProjects/School Project/AirReservation_Project/BookingConf" + 'AX' + str(boardGen), 'a+')
     f.write('PASSENGER 1- ' + '\n')
     f.write(
         'Name: ' + passenger1 + '\n' + 'Date of Birth: ' + DOB + '\n' 'Passport Number: ' + passport1 + '\n' 'Expiry Date : ' + passportExp1 + '\n')
@@ -192,22 +189,20 @@ if str(departureCountry) != str(destinationCountry):
     f.write(
         'Name: ' + P2 + '\n' + 'Date of Birth: ' + DOB2 + '\n' 'Passport Number: ' + passport3 + '\n' 'Expiry Date : ' + passportExp3 + '\n')
     f.write('Your Journey is on: ' + travelDate + '\n')
-    f.write('Airline: ' + testingairline.airline + ' | ' + 'Aircraft Number: ' + str(flightGen))
+    f.write('Airline: ' + airline_Timing.airline + ' | ' + 'Aircraft Number: ' + str(flightGen)+ '|')
     f.write('\nDeparture: ' + departureCity + ', ' + departureCountry + '  |  ' + 'Destination: ' + destinationCity + ', ' + destinationCountry + '\n')
-    f.write(Payment.paid)
-    f.write("\nYour Boarding Pass Number is AX" + str(boardGen) )
+    f.write(payment.paid)
+    f.write("\nYour Boarding Pass Number is AX" + str(boardGen))
     f.close()
     exit()
 else:
     pass
-print(
-    "1. Air India" + '\n' + "2. United Airlines" + '\n' + "3. Emirates" + '\n' + "4. Etihad Airways" + '\n' + "5. Qatar Airways" + '\n')
 
-import testingairline
-import Payment
+import airline_Timing
+import payment
 
 print("YOUR TICKET HAS BEEN BOOKED SUCCESSFULLY. YOUR TICKET NUMBER IS AX", str(boardGen))
-f = open("C:/Users/aswin/PycharmProjects/PythonWorkspace/SchoolBackup/BookingConf/" + 'AX' + str(boardGen), 'w')
+f = open("\nC:/Users/aswin/PycharmProjects/School Project/AirReservation_Project/BookingConf" + 'AX' + str(boardGen), 'a+')
 f.write('PASSENGER 1: ' + '\n')
 f.write(
     'Name: ' + passenger1 + '\n' + 'Date of Birth: ' + DOB + '\n')
@@ -219,9 +214,9 @@ f.write('\nPASSENGER 3: ' + '\n')
 f.write(
     'Name: ' + P2 + '\n' + 'Date of Birth: ' + DOB2)
 f.write('Your Journey is on: ' + travelDate + '\n')
-f.write('Airline: ' + testingairline.airline + ' | ' + 'Aircraft Number: ' + str(flightGen))
+f.write('Airline: ' + airline_Timing.airline + ' | ' + 'Aircraft Number: ' + str(flightGen)+ '|')
 f.write('\nDeparture: ' + departureCity + ', ' + departureCountry + '  |  ' + 'Destination: ' + destinationCity + ', ' + destinationCountry + '\n')
-f.write(Payment.paid)
+f.write(payment.paid)
 f.write("\nYour Boarding Pass Number is AX" + str(boardGen))
 f.close()
 exit()
