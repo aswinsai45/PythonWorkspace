@@ -61,7 +61,8 @@ if str(departureCountry) != str(destinationCountry):
     else:
         choice = input('Do you have to renew your passport? [Y or N]: ')
         if choice == 'Y' or 'y':
-            print('Okay')
+            print('Okay, Please renew your passport')
+            print('Exiting..')
             exit()
         else:
             pass
@@ -80,15 +81,15 @@ if str(departureCountry) != str(destinationCountry):
 
     import payment
 
-    print("YOUR TICKET HAS BEEN BOOKED SUCCESSFULLY. YOUR TICKET NUMBER IS AX", str(boardGen))
-    f = open("C:/Users/aswin/PycharmProjects/School Project/AirReservation_Project/BookingConf" + 'AX' + str(boardGen), 'a+')
+    print("~~~YOUR TICKET HAS BEEN BOOKED SUCCESSFULLY. YOUR TICKET NUMBER IS AX", str(boardGen), "~~~")
+    f = open("C:/Users/aswin/PycharmProjects/School Project/AirReservation_Project/BookingConf/" + 'AX' + str(boardGen), 'a+')
     f.write('PASSENGER 1: ' + '\n')
     f.write(
         'Name: ' + passenger1 + '\n' + 'Date of Birth: ' + DOB + '\n' 'Passport Number: ' + passportNumber + '\n' 'Expiry Date : ' + passportExpiry + '\n')
     f.write('Your Journey is on: ' + travelDate + '\n')
-    f.write('Airline: ' + airline_Timing.airline + ' | ' + 'Aircraft Number: ' + str(flightGen) + '|')
+    f.write('Airline: ' + airline_Timing.listofairlines[airline_Timing.airline] + ' | ' + 'Aircraft Number: ' + str(flightGen) + '|')
     f.write('Departure: ' + departureCity + ', ' + departureCountry + '  |  ' + 'Destination: ' + destinationCity + ', ' + destinationCountry + '\n')
-    f.write(payment.paid)
+    
     f.write("Your Boarding Pass Number is AX" + str(boardGen))
     f.close()
     exit()
@@ -98,16 +99,17 @@ else:
 import airline_Timing
 
 import payment
+print('Generating ticket..')
 
-print("YOUR TICKET HAS BEEN BOOKED SUCCESSFULLY. YOUR TICKET NUMBER IS AX", str(boardGen))
+print("~~~YOUR TICKET HAS BEEN BOOKED SUCCESSFULLY. YOUR TICKET NUMBER IS AX", str(boardGen), "~~~")
 f = open("C:/Users/aswin/PycharmProjects/School Project/AirReservation_Project/BookingConf/" + 'AX' + str(boardGen) , 'a+')
 f.write('PASSENGER 1: ' + '\n')
 f.write(
     'Name: ' + passenger1 + '\n' + 'Date of Birth: ' + DOB + '\n' )
 f.write('Your Journey is on: ' + travelDate + '\n')
-f.write('Airline: ' + airline_Timing.airline + ' | ' + 'Aircraft Number: ' + str(flightGen) + '|')
+f.write('Airline: ' + airline_Timing.listofairlines[airline_Timing.airline] + ' | ' + 'Aircraft Number: ' + str(flightGen) + '|')
 f.write('Departure: ' + departureCity + ', ' + departureCountry + '  |  ' + 'Destination: ' + destinationCity + ', ' + destinationCountry + '\n')
-f.write(payment.paid)
+
 f.write("Your Boarding Pass Number is AX" + str(boardGen) )
 f.close()
 exit()

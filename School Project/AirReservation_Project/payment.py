@@ -1,7 +1,7 @@
 import datetime
 import random
 
-price = random.randint(12542, 50000)
+price = random.randint(15654, 50000)
 
 print('\nYour ticket price will be: ₹', price)
 
@@ -14,7 +14,7 @@ if cardLength == 16:
     pass
 else:
     print('Invalid Number, try again: ')
-    card_number = int(input('16- Digit Credit/Debit card number: '))
+    card_number = str(input('16- Digit Credit/Debit card number: '))
     if cardLength == 16:
         pass
     else:
@@ -49,4 +49,6 @@ else:
         print('Invalid CVV for the 2nd time, you will now be exited. please restart')
         exit()
 
-paid = print('Paid by: ', nameOnCard + ' | ' + 'Card Number:' + card_number + ' | ' + 'Transaction Approved for ' + '| ' + ('₹' + str(price)))
+paid = ('Paid by: ', nameOnCard + ' | ' + 'Transaction Approved for ' + ('₹' + str(price)))
+
+print(paid)
