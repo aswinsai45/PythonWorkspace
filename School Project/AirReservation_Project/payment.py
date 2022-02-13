@@ -1,54 +1,42 @@
 import datetime
 import random
 
-price = random.randint(15654, 50000)
+price = random.randint(22000, 50000)
 
 print('\nYour ticket price will be: ₹', price)
 
 print('Now, please pay with your Debit/Credit Card here')
 
-nameOnCard = input('Name on Card: ')
-card_number = str(input('16- Digit Credit/Debit card number: '))
-cardLength = len(card_number)
-if cardLength == 16:
-    pass
-else:
-    print('Invalid Number, try again: ')
+nameOnCard = input('\nName on Card: ')
+
+while True:
     card_number = str(input('16- Digit Credit/Debit card number: '))
+    cardLength = len(card_number)
     if cardLength == 16:
-        pass
+        break
     else:
-        print('Sorry, you have entered incorrectly for the 2nd time. You will now be exited. Please restart')
-        exit()
-cardExp = input('Enter expiry date [dd/mm/yyyy]:')
-cardValidation = datetime.datetime.strptime(cardExp, "%d/%m/%Y").date()
-if cardValidation > datetime.date.today():
-    pass
-elif cardValidation == datetime.date.today():
-    print("Don't forget to renew your card!")
-else:
-    print("Cannot choose a date in the past, -", cardExp + '\n')
-    print("Try again")
+        print('Invalid Number, try again: ')
+
+while True:
     cardExp = input('Enter expiry date [dd/mm/yyyy]:')
     cardValidation = datetime.datetime.strptime(cardExp, "%d/%m/%Y").date()
-    if cardValidation >= datetime.date.today():
-        pass
+    if cardValidation > datetime.date.today():
+        break
+    elif cardValidation == datetime.date.today():
+        print("Don't forget to renew your card!")
+        break
     else:
-        print('\n' + 'Sorry, date invalid, Renew your card')
-        print('Please restart and try again')
-        exit()
-cvvCard = str(input("Enter 3 digit card's cvv: "))
-if len(cvvCard) == 3:
-    pass
-else:
-    print('Invalid CVV, try again')
+        print("Cannot choose a date in the past, -", cardExp + '\n')
+        print("Try again")
+
+while True:
     cvvCard = str(input("Enter 3 digit card's cvv: "))
     if len(cvvCard) == 3:
-        pass
+        break
     else:
-        print('Invalid CVV for the 2nd time, you will now be exited. please restart')
-        exit()
+        print('Invalid CVV, try again')
+        cvvCard = str(input("Enter 3 digit card's cvv: "))
 
-paid = ('Paid by: ', nameOnCard + ' | ' + 'Transaction Approved for ' + ('₹' + str(price)))
+print('Paid by: ', nameOnCard, ' | ', 'Transaction Approved for ', ('₹' + str(price)), ' | ', 'Card Number: XXXXXXXXXXXX', card_number[::-4])
 
-print(paid)
+

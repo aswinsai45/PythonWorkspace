@@ -1,16 +1,13 @@
 import os.path
-import shutil
+
 
 print("\n\nWelcome to FlightBook, how can we help you today?: \n")
 
 action = {1: "Book a ticket", 2: "Retrieve a ticket", 3: "Cancel a ticket"}
 
 print(action)
-
 userEnter = int(input("\nEnter the Index: "))
-
 dictAccess = action[userEnter]
-
 print(dictAccess)
 
 # Books a Ticket
@@ -23,7 +20,7 @@ if userEnter == 1:
         import twopersons
     elif ch == 3:
         import threepersons
-    elif ch > 3:
+    else:
         print("Sorry unavailable as of now. Thanks for understanding!")
         exit()
 
@@ -43,17 +40,15 @@ elif userEnter == 2:
     s = file.read()
     print(s)
 
-
-
 # Cancels a ticket
 
 elif userEnter == 3:
     print("~~You have chose to cancel a ticket~~")
     boardingPassCancel = input('Please enter boarding pass number here: ')
-
-    shutil.move('C:/Users/aswin/PycharmProjects/School Project/AirReservation_Project/BookingConf/' + boardingPassCancel,
-                'C:/Users/aswin/PycharmProjects/School Project/AirReservation_Project/BookingConf/Cancelled')
+    delete = os.remove(
+        'C:/Users/aswin/PycharmProjects/School Project/AirReservation_Project/BookingConf/' + boardingPassCancel)
     print('Done! Ticket ' + boardingPassCancel + ' has been cancelled')
     exit()
-elif print('Sorry command not available'):
+else:
+    print('Sorry command not available. Try Again')
     exit()
