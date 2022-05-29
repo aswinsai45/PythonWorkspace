@@ -45,7 +45,7 @@ elif userEnter == 2:
 elif userEnter == 3:
     print("~~You have chose to cancel a ticket~~")
     boardingPassCancel = input('Please enter boarding pass number here: ')
-    delete = os.remove(
+    os.remove(
         'C:/Users/aswin/PycharmProjects/School Project/AirReservation_Project/BookingConf/' + boardingPassCancel)
     print('Done! Ticket ' + boardingPassCancel + ' has been cancelled')
     exit()

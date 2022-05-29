@@ -10,3 +10,9 @@ while i in range(0, n):
     i = i + 1
 
 print(names)
+
+if uid == userID and pwd == passw:
+    print('login successful')
+else:
+    print('Credentials Incorrect')
+    return

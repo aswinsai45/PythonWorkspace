@@ -37,6 +37,6 @@ while True:
         print('Invalid CVV, try again')
         cvvCard = str(input("Enter 3 digit card's cvv: "))
 
-print('Paid by: ', nameOnCard, ' | ', 'Transaction Approved for ', ('₹' + str(price)), ' | ', 'Card Number: XXXXXXXXXXXX', card_number[::-4])
+print('Paid by: ', nameOnCard, ' | ', 'Transaction Approved for ', ('₹' + str(price)), ' | ', 'Card Number: XXXXXXXXXXXX', card_number[-1:-4])
 
 
