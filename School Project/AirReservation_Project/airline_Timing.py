@@ -44,7 +44,7 @@ while True:
     print(listTime)
     if userEnter in times.keys():
         print('You have chose the time - ', listTime)
-        print('Your flight will now be booked with', listofairlines[airline])
+        print('Your flight will now be booked with', listofairlines[airline], 'at ', listTime)
         break
     else:
         print('Sorry, time not available. Try Again. ')
