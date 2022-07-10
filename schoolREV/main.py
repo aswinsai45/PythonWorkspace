@@ -1,16 +1,14 @@
 import pickle
 
-f = open('tempprac.dat', 'wb+')
+f = open('tempprac.dat', 'rb')
 
-dic1 = {145: "hello", 253: "wow:"}
+dic1 = {145: "hello", 253: "wow"}
 
-pickle.dump(dic1, f)
+v = pickle.load(f)
 
-f.seek(0)
+s = int(input('Enter to search: '))
 
-dic2 =
-try:
-    v = pickle.load(f)
-    print(v)
-except EOFError:
-    print('done')
+
+for i in v:
+    if i == s:
+        print('Name: ', dic1.get(i))
