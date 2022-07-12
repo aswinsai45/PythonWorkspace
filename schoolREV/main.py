@@ -1,14 +1,9 @@
 import pickle
 
-f = open('tempprac.dat', 'rb')
-
-dic1 = {145: "hello", 253: "wow"}
-
-v = pickle.load(f)
-
-s = int(input('Enter to search: '))
-
-
-for i in v:
-    if i == s:
-        print('Name: ', dic1.get(i))
+try:
+    f = open('course.dat', 'rb')
+    v = pickle.load(f)
+    for i in v:
+        print(i)
+except EOFError:
+    print('Done!')
