@@ -8,9 +8,13 @@ print('1. Enter data \n 2. Search with Phone Number \n 3. Modify a record \n 4. 
 
 def enter():
     f1 = open('customer.dat', 'ab')
-    num = int(input('Enter customer Phone Number: '))
-    name = input('Enter customer name: ')
-    dic1[num] = name
+    while True:
+        num = int(input('Enter customer Phone Number (or "0" to exit): '))
+        if num == 0:
+            print('Done!\n')
+            break
+        name = input('Enter customer name: ')
+        dic1[num] = name
     pickle.dump(dic1, f1)
 
     f1.close()
@@ -25,9 +29,9 @@ def search():
     for i in v:
         if i == s:
             q = 2
-            print("Customer name: ", v.get(i))
-        elif q == 1:
-            print('Not found')
+            print("Customer name: ", v[s])
+    if q == 1:
+        print('Not found')
     print('Done! \n')
 
     f1.close()
@@ -38,19 +42,21 @@ def mod():
     f2 = open('temp.dat', 'wb')
     f1.seek(0)
 
+    dic2 = {}
     q = 0
-    x = int(input('enter the phone:'))
+    x = int(input('Enter Phone Num: '))
     v = pickle.load(f1)
     for i in v:
         if i == x:
             q = 1
-            newname = input('enter the new name:')
-            v.update({x:newname})
-            del v[x]
-            pickle.dump(v, f2)
-        elif q == 0:
+            newname = input('Enter New Name: ')
+            dic2[x] = newname
+        elif i != 0:
+            q = 1
+            dic2[i] = v[i]
+        if q == 0:
             print('Record not found')
-
+    pickle.dump(dic2, f2)
 
     f1.close()
     f2.close()
@@ -60,11 +66,12 @@ def mod():
 
 
 def display():
-    f1 = open('customer.dat', 'rb')
-    f1.seek(0)
     try:
+        f1 = open('customer.dat', 'rb+')
+        f1.seek(0)
         v = pickle.load(f1)
-        print(v)
+        for i in v:
+            print(i, '\t', v[i])
     except EOFError:
         print('Done! \n')
 

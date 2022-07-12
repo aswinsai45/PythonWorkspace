@@ -1,26 +1,28 @@
 import pickle
 import os
 
-
 print("\n 1. Enter course details \n 2. Search fee \n 3. Delete course \n 4. Display All")
+
+l1 = []
 
 
 def enter():
     f = open('course.dat', 'ab')
-    l1 = []
+    global l1
     while True:
-        id = int(input('Enter course ID (or "0" to exit): '))
+        id = int(input('\nEnter course ID (or "0" to exit): '))
         if id == 0:
             break
         name = input('Enter course name: ')
         faculty = input('Enter faculty group: ')
-        fee = float(input('Enter fee for the course: \n'))
+        fee = float(input('Enter fee for the course: '))
 
         l1.append([id, name, faculty, fee])
-    for i in l1:
-        pickle.dump(i, f)
+
+    pickle.dump(l1, f)
 
     f.close()
+
 
 def searchfee():
     try:
@@ -33,8 +35,10 @@ def searchfee():
             if i[1] == srname:
                 var = 1
                 print('The fee for the course is: Rs.', i[3])
+                f.close()
         if var == 0:
             print('Course not found')
+            f.close()
     except EOFError:
         print('Completed')
 
@@ -54,8 +58,14 @@ def deletecourse():
         elif i[0] != delid:
             l2.append(i)
             pickle.dump(l2, f2)
+
+    print('Course Deleted Successfully')
+
     if var == 0:
         print('Course not found')
+
+    f.close()
+    f2.close()
 
     os.remove('course.dat')
     os.rename('temp.dat', 'course.dat')
@@ -69,12 +79,13 @@ def displaycourse():
 
         for i in v:
             print(i)
+        f.close()
     except EOFError:
         print('completed')
 
 
 while True:
-    ch = input('Enter your choice: ')
+    ch = input('Enter your choice (or "exit" to exit): ')
     if ch == '1':
         enter()
     elif ch == '2':
