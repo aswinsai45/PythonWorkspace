@@ -1,11 +1,20 @@
-import pickle
+import csv
 
-f = open(r"C:\Users\aswin\OneDrive\Documents\customer.dat", 'rb')
+f = open('bankacc.csv')
+r = csv.reader(f)
 
-try:
-    v = pickle.load(f)
-    for i in v:
-        print(i, '\t', v[i])
-except EOFError:
-    print('\nDone!')
+sr = int(input('Number to check: '))
 
+f.seek(0)
+
+k = 0
+
+
+for row in r:
+    if k != 0:
+        num = row[0]
+        if num == str(sr):
+            print('found')
+    else:
+
+        k = k+1
