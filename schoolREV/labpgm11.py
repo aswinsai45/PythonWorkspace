@@ -1,27 +1,27 @@
 import csv, os
 
+l1 = []
+
 
 def add():
-    f = open('bankacc.csv', 'a')
+    f = open('course.csv', 'a')
     w = csv.writer(f)
     while True:
-        num = int(input('Enter acct. number: '))
-        name = input('Enter name: ')
-        add = input('Enter address: ')
-        ph = int(input('Enter Phone Number: '))
-        bal = float(input('Enter balance: '))
-
-        w.writerow([num, name, add, ph, bal])
-
-        cnt = input('Do you want to continue?[Y/N]: ')
-        if cnt == 'n' or cnt == 'N':
-            print('\nDone!\n')
+        id = int(input('\nEnter course ID (or "0" to exit): '))
+        if id == 0:
             break
+        name = input('Enter course name: ')
+        faculty = input('Enter faculty group: ')
+        fee = float(input('Enter fee for the course: '))
+
+        w.writerow([id, name, faculty, fee])
+
+
     f.close()
 
 
 def read():
-    f = open('bankacc.csv', 'r')
+    f = open('course.csv', 'r')
     f.seek(0)
     q = 0
     r = csv.reader(f)
@@ -37,12 +37,12 @@ def read():
 
 
 def search():
-    f = open('bankacc.csv', 'r')
+    f = open('course.csv', 'r')
     f.seek(0)
     r = csv.reader(f)
     q = 1
 
-    sr = (input('Enter acct. Number to search: '))
+    sr = input('Enter course ID to search: ')
     for i in r:
         if i:
             if i[0] == sr:
@@ -55,7 +55,7 @@ def search():
 
 
 def update():
-    f = open('bankacc.csv', 'r')
+    f = open('course.csv', 'r')
     f.seek(0)
     f2 = open('temp.csv', 'w')
     r = csv.reader(f)
@@ -63,67 +63,53 @@ def update():
 
     q = 1
 
-    sr = input('Enter acct. Number to search for updation: ')
-    print('\n\t~~MODIFICATION OPERATIONS~~\n1. Name\n2. Address\n3. Phone\n4. Balance\n5. Exit modification')
-    ch2 = int(input('Enter your choice: '))
-    if ch2 == 1:
-        for i in r:
-            if i:
+    sr = input('Enter Course ID to search for updation: ')  # cid, cname, faculty, fees
+    for i in r:
+        if i:
+            print('\n\t~~MODIFICATION OPERATIONS~~\n1. Name\n2. Faculty\n3. Fees\n4. Exit')
+            ch = int(input('Enter your choice: '))
+            if ch == 1:
                 if i[0] == sr:
                     q = 2
                     new = input('Enter new name: ')
-                    l1 = [i[0], new, i[2], i[3], i[4]]
+                    l1 = [i[0], new, i[2], i[3]]
                     w.writerow(l1)
 
                 elif i[0] != sr:
                     q = 2
                     w.writerow(i)
+                break
 
-
-    elif ch2 == 2:
-        for i in r:
-            if i:
+            elif ch == 2:
                 if i[0] == sr:
                     q = 2
-                    newad = input('Enter new address: ')
-                    l1 = [i[0], i[1], newad, i[3], i[4]]
+                    newn = input('Enter New faculty: ')
+                    l1 = [i[0], i[1], newn, i[3]]
                     w.writerow(l1)
                 elif i[0] != sr:
                     q = 2
                     w.writerow(i)
+                break
 
 
-    elif ch2 == 3:
-        for i in r:
-            if i:
+            elif ch == 3:
                 if i[0] == sr:
                     q = 2
-                    newph = int(input('Enter new phone: '))
-                    l1 = [i[0], i[1], i[2], newph, i[4]]
+                    fee = int(input('Enter new fee: '))
+                    l1 = [i[0], i[1], i[2], fee]
                     w.writerow(l1)
                 elif i[0] != sr:
                     q = 2
                     w.writerow(i)
+                break
+            elif ch == 4:
+                q = 2
+                print('Thank You')
 
-    elif ch2 == 4:
-        for i in r:
-            if i:
-                if i[0] == sr:
-                    q = 2
-                    newbal = float(input('Enter new balance: '))
-                    l1 = [i[0], i[1], i[2], i[3], newbal]
-                    w.writerow(l1)
-                elif i[0] != sr:
-                    q = 2
-                    w.writerow(i)
-
-    elif ch2 == 5:
-        q = 2
-        print('Thank you')
-        for i in r:
-            if i:
-                w.writerow(i)
-
+                break
+            else:
+                print('Please enter a valid choice')
+                break
 
     if q == 1:
         print('Not found')
@@ -131,18 +117,18 @@ def update():
     f.close()
     f2.close()
 
-    os.remove('bankacc.csv')
-    os.rename('temp.csv', 'bankacc.csv')
+    os.remove('course.csv')
+    os.rename('temp.csv', 'course.csv')
 
 
 def delete():
-    f = open('bankacc.csv', 'r')
+    f = open('course.csv', 'r')
     f2 = open('temp.csv', 'w')
 
     q = 1
     r = csv.reader(f)
     w = csv.writer(f2)
-    delete = int(input('Enter account number to delete: '))
+    delete = int(input('Enter Course ID to delete: '))
 
     for i in r:
         if i:
@@ -159,8 +145,8 @@ def delete():
     f.close()
     f2.close()
 
-    os.remove('bankacc.csv')
-    os.rename('temp.csv', 'bankacc.csv')
+    os.remove('course.csv')
+    os.rename('temp.csv', 'course.csv')
 
     print('Completed')
 
