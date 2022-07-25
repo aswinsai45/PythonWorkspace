@@ -63,12 +63,13 @@ def update():
 
     q = 1
 
-    sr = input('Enter Course ID to search for updation: ')  # cid, cname, faculty, fees
-    for i in r:
-        if i:
-            print('\n\t~~MODIFICATION OPERATIONS~~\n1. Name\n2. Faculty\n3. Fees\n4. Exit')
-            ch = int(input('Enter your choice: '))
-            if ch == 1:
+    sr = input('Enter Course ID to search for updation: ')
+    print('\n\t~~MODIFICATION OPERATIONS~~\n1. Name\n2. Faculty\n3. Fees\n4. Exit') # cid, cname, faculty, fees
+    ch = int(input('Enter your choice: '))
+
+    if ch == 1:
+        for i in r:
+            if i:
                 if i[0] == sr:
                     q = 2
                     new = input('Enter new name: ')
@@ -78,9 +79,11 @@ def update():
                 elif i[0] != sr:
                     q = 2
                     w.writerow(i)
-                break
 
-            elif ch == 2:
+
+    elif ch == 2:
+        for i in r:
+            if i:
                 if i[0] == sr:
                     q = 2
                     newn = input('Enter New faculty: ')
@@ -89,10 +92,12 @@ def update():
                 elif i[0] != sr:
                     q = 2
                     w.writerow(i)
-                break
 
 
-            elif ch == 3:
+
+    elif ch == 3:
+        for i in r:
+            if i:
                 if i[0] == sr:
                     q = 2
                     fee = int(input('Enter new fee: '))
@@ -101,15 +106,11 @@ def update():
                 elif i[0] != sr:
                     q = 2
                     w.writerow(i)
-                break
-            elif ch == 4:
-                q = 2
-                print('Thank You')
 
-                break
-            else:
-                print('Please enter a valid choice')
-                break
+    elif ch == 4:
+        q = 2
+        print('Thank You')
+
 
     if q == 1:
         print('Not found')
