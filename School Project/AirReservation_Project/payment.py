@@ -1,7 +1,7 @@
 import datetime
 import random
 
-price = random.randint(22000, 50000)
+price = random.randint(20000, 50000)
 
 print('\nYour ticket price will be: ₹', price)
 
@@ -30,12 +30,10 @@ while True:
         print("Try again")
 
 while True:
-    cvvCard = str(input("Enter 3 digit card's cvv: "))
+    cvvCard = str(input("Enter 3 digit card's CVV: "))
     if len(cvvCard) == 3:
         break
-    else:
-        print('Invalid CVV, try again')
-        cvvCard = str(input("Enter 3 digit card's cvv: "))
+
 
 print('Paid by: ', nameOnCard, ' | ', 'Transaction Approved for ', ('₹' + str(price)), ' | ', 'Card Number: XXXXXXXXXXXX', card_number[-1:-4])
 
