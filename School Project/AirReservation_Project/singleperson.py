@@ -1,9 +1,20 @@
 import datetime
 import random
-
+import time
 import mysql.connector
 
 timeValidator = datetime.date.today()
+
+
+def progress(percent=10, width=30):
+    # The number of hashes to show is based on the percent passed in. The
+    # number of blanks is whatever space is left after.
+    hashes = width * percent // 100
+    blanks = width - hashes
+
+    print('\r[', hashes*'*', blanks*' ', ']', f' {percent:.0f}%', sep='',
+        end='', flush=True)
+
 
 
 def valid1(x):
@@ -28,6 +39,7 @@ flightGen = random.randint(22523, 92527)
 print('ENTER YOUR DETAILS CAREFULLY')
 passenger1 = input("\nEnter your name: ")
 
+
 while True:
     DOB = (input("Enter your Date of Birth in yyyy-mm-dd format: "))
     validDOB = datetime.datetime.strptime(DOB, "%Y-%m-%d").date()
@@ -50,30 +62,52 @@ print("Now Enter your Departure Location below\n")
 departureCountry = input("Departing Country?: ")
 departureCity = input("Departing City?: ")
 
-print("Now Enter your Arrival Location below\n")
+print("Now Enter your Destination Location below\n")
 destinationCountry = input("Destination Country?: ")
 destinationCity = input("Destination City?: ")
 
+k = 0
 passportNumber = ''
 if str(departureCountry) != str(destinationCountry):
+    k = 1
     passportNumber = input("Enter your Passport Number: ")
     while True:
-        passportExpiry = (input("Enter expiration date of passport in dd/mm/yyyy format: "))
-        passportExpValidation = datetime.datetime.strptime(passportExpiry, "%d/%m/%Y").date()
-        if valid1(passportExpValidation) == True:
+        passportExpiry = (input("Enter expiration date of passport in yyyy-mm-dd format: "))
+        passportExpValidation = datetime.datetime.strptime(passportExpiry, "%Y-%m-%d").date()
+        if valid1(passportExpValidation) and (passportExpValidation > travelValidation):
             break
+        elif passportExpValidation < travelValidation:
+            print('Passport Invalid for Travel, as of required travel date')
+
+
+if k == 0:
+    passportNumber = 'DOMESTIC TRAVEL'
 
 import airline_Timing
 
 import payment
 
-print('Generating ticket..')
-print("~~~YOUR TICKET HAS BEEN BOOKED SUCCESSFULLY. YOUR TICKET NUMBER IS AX", str(boardGen), "~~~")
+print('This will take a moment')
+for i in range(101):
+    progress(i)
+    time.sleep(0.1)
+
+print()
+print('Enjoy your flight!')
+
+boardpass = "AX" + str(boardGen)
+flnum = airline_Timing.pr + str(flightGen)
 
 con = mysql.connector.connect(user='root', host='localhost', password='mySQL1234$s-10763', database='tickets')
 cur = con.cursor()
+
 cur.execute(
-    'insert into journeydetails values ({"p1"},{"dob"},{"bpass"},{"passport"},{"airline"},{"fltime"},{"fldate"},{"flnum"}').format(
-    p1= passenger1, dob=DOB, bpass=boardGen, passport=passportNumber, airline=airline_Timing.chosen,
-    fltime=airline_Timing.listTime, fldate=travelDate, flnum=flightGen)
+    'insert into journeydetails values("{}","{}","{}","{}","{}","{}","{}","{}")'.format(passenger1, DOB, boardpass,
+                                                                                        passportNumber,
+                                                                                        airline_Timing.chosen,
+                                                                                        airline_Timing.listTime,
+                                                                                        travelDate,
+                                                                                        flnum))
 con.commit()
+
+print("~~~YOUR TICKET HAS BEEN BOOKED SUCCESSFULLY. YOUR TICKET NUMBER IS AX", boardpass, "~~~")

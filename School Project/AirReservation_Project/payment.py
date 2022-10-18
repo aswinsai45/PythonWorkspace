@@ -18,8 +18,8 @@ while True:
         print('Invalid Number, try again: ')
 
 while True:
-    cardExp = input('Enter expiry date [dd/mm/yyyy]:')
-    cardValidation = datetime.datetime.strptime(cardExp, "%d/%m/%Y").date()
+    cardExp = input('Enter expiry date [yyyy-mm-dd]:')
+    cardValidation = datetime.datetime.strptime(cardExp, "%Y-%m-%d").date()
     if cardValidation > datetime.date.today():
         break
     elif cardValidation == datetime.date.today():

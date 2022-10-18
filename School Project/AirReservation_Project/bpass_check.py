@@ -1,56 +1,57 @@
-import mysql.connector
+import datetime
+import mysql.connector as connector
+import itertools
 
-# timelist= []
-# for i in range(3):
-#     randh = random.randint(1, 23)
-#     randm = random.randint(0, 59)
-#     ti0 = datetime.time(randh, randm, 0)
-#
-#     timelist.append(str(ti0))
-#
-# times = {}
-# k = 0
-# for i in timelist:
-#     k = k+1
-#     times[k] = i
-#
-#
-#
-#
-# print(timelist)
-# print(times)
-#
-# import mysql.connector as con
-#
-# c = con.connect(host = 'localhost', user = 'root', passwd = 'mySQL1234$s-10763', database = 'tickets')
-# if c.is_connected():
-#     print('Connected')
-#
-#
-# timeValidator = datetime.date.today()
-# #strp
-# DOB = (input("Enter your Date of Birth in yyyy-mm-dd format: "))
-# validDOB = datetime.datetime.strptime(DOB, "%Y-%m-%d").date()
-# if validDOB >= timeValidator.today():
-#     print("\nCannot choose a date in the future, ", DOB, "Please try again..\n")
-# #
-# cur = c.cursor()
-# cur.execute('insert into date1 values("{date}")'.format(date = DOB))
-# c.commit()
-
-passenger1 = "sai"
-DOB = "2005-08-11"
-boardGen = "AXJS2348"
-passportNumber = "S28393"
-airline = "Emirates"
-fltime = "01:34:00"
-fldate = "2023-03-01"
-flnum = "AXE3402"
-con = mysql.connector.connect(user='root', host='localhost', password='mySQL1234$s-10763', database='tickets')
+con = connector.connect(user='root', host='localhost', password='mySQL1234$s-10763', database='tickets')
 cur = con.cursor()
-cur.execute('insert into journeydetails values ("{p1}","{dob}","{bpass}","{passport}","{airline}","{fltime}",'
-            '"{fldate}","{flnum}"').format(
-    p1= passenger1, dob=DOB, bpass=boardGen, passport=passportNumber, airline=airline,
-    fltime=fltime, fldate=fldate, flnum=flnum)
-con.commit()
+cur.execute('Select * from journeydetails where boardingpass = 3389 ')
+v = cur.fetchall()
 
+l = []
+
+# length = [8]
+#
+# modlist = [list(itertools.islice(l, elem))
+#         for elem in length]
+for row in v:
+    for col in row:
+        l.append(col)
+#
+
+# print(l)
+print()
+print()
+
+
+l = []
+l2 = []
+def passengerlist(l, n=8):
+    global l2
+    for j in range(0, len(l), n):
+        l2 = l[j:j + n]
+    l = l2
+    print(l)
+
+passengerlist(l)
+
+
+
+
+# length = 8
+# modlist = [list(itertools.islice(l, elem))
+#         for elem in length]
+# print(modlist)
+# def timeformatter(date):
+#     d = datetime.datetime.strftime(date, "%Y-%m-%d")
+#     print(d)
+#
+# date = l[1]
+# timeformatter(date)
+
+
+# print(l[1])
+# date = l[1]
+# d = datetime.datetime.strftime(date, "%Y-%m-%d")
+#
+# print(d)
+#
