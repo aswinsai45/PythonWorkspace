@@ -30,7 +30,7 @@ def valid2(x):
         print('Cannot choose ', x, 'Please enter date correctly')  # dob
 
 
-boardGen = random.randint(2000, 9000)
+boardGen = random.randint(28514, 68741)
 flightGen = random.randint(22523, 92527)
 
 # P(1)
@@ -88,6 +88,8 @@ print("Now Enter your Destination Location below\n")
 destinationCountry = input("Destination Country?: ")
 destinationCity = input("Destination City?: ")
 
+departure =  departureCity + ', ' +departureCountry
+destination = destinationCity + ', ' +destinationCountry
 
 passport1 = ''
 passport2 = ''
@@ -144,28 +146,29 @@ con = mysql.connector.connect(user='root', host='localhost', password='mySQL1234
 cur = con.cursor()
 
 cur.execute(
-    'insert into journeydetails values("{}","{}","{}","{}","{}","{}","{}","{}")'.format(passenger1, DOB1, boardpass,
-                                                                                        passport1,
+    'insert into journeydetails values("{}","{}","{}","{}","{}","{}","{}","{}","{}","{}")'.format(passenger1, DOB1, boardpass,
+                                                                                        passport1,departure,destination,
                                                                                         airline_Timing.chosen,
                                                                                         airline_Timing.listTime,
                                                                                         travelDate,
                                                                                         flnum))
 
 cur.execute(
-    'insert into journeydetails values("{}","{}","{}","{}","{}","{}","{}","{}")'.format(passenger2, DOB2, boardpass,
-                                                                                        passport2,
+    'insert into journeydetails values("{}","{}","{}","{}","{}","{}","{}","{}","{}","{}")'.format(passenger2, DOB2, boardpass,
+                                                                                        passport2,departure,destination,
                                                                                         airline_Timing.chosen,
                                                                                         airline_Timing.listTime,
                                                                                         travelDate,
                                                                                         flnum))
 
 cur.execute(
-    'insert into journeydetails values("{}","{}","{}","{}","{}","{}","{}","{}")'.format(passenger3, DOB3, boardpass,
-                                                                                        passport3,
+    'insert into journeydetails values("{}","{}","{}","{}","{}","{}","{}","{}","{}","{}")'.format(passenger3, DOB3, boardpass,
+                                                                                        passport3,departure,destination,
                                                                                         airline_Timing.chosen,
                                                                                         airline_Timing.listTime,
                                                                                         travelDate,
                                                                                         flnum))
 con.commit()
 
+cur.execute('insert into BPass values("{}")'.format(boardpass))
 print("~~~YOUR TICKET HAS BEEN BOOKED SUCCESSFULLY. YOUR TICKET NUMBER IS AX", (boardpass), "~~~")

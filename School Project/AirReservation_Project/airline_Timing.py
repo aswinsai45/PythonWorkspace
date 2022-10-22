@@ -17,8 +17,7 @@ while True:
     else:
         print("Airline Unavailable/Incorrect. Please try again")
 
-print('\nYou have chose this airline: ', airline)
-print('The available times of flights are: ')
+print('\nThe available times of flights are: ')
 
 timelist = []
 for i in range(3):
@@ -36,7 +35,7 @@ for i in timelist:
 
 print(times)
 
-print('Type in any of the index shown above to book your flight: ')
+print('\nType in any of the index shown above to book your flight: ')
 
 chosen = ''
 
@@ -63,7 +62,7 @@ while True:
     if userEnter in times.keys():
         print('You have chose the time: ', listTime)
         chosen = listofairlines[airline]
-        print('Your flight will now be booked with', chosen, 'at ', listTime)
+        print('\nYour flight will now be booked with', chosen, 'at ', listTime)
         break
     else:
-        print('Sorry, time not available. Try Again. ')
+        print('\nSorry, time not available. Try Again. ')

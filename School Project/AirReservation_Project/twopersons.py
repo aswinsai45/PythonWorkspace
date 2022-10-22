@@ -76,6 +76,10 @@ destinationCity = input("Destination City?: ")
 
 # If travelling to a different county, passport is needed
 
+departure =  departureCity + ', ' +departureCountry
+destination = destinationCity + ', ' +destinationCountry
+
+
 passport1 = ''
 passport2 = ''
 k = 0
@@ -121,20 +125,21 @@ con = mysql.connector.connect(user='root', host='localhost', password='mySQL1234
 cur = con.cursor()
 
 cur.execute(
-    'insert into journeydetails values("{}","{}","{}","{}","{}","{}","{}","{}")'.format(passenger1, DOB, boardpass,
-                                                                                        passport1,
+    'insert into journeydetails values("{}","{}","{}","{}","{}","{}","{}","{}","{}","{}")'.format(passenger1, DOB, boardpass,
+                                                                                        passport1,departure,destination,
                                                                                         airline_Timing.chosen,
                                                                                         airline_Timing.listTime,
                                                                                         travelDate,
                                                                                         flnum))
 
 cur.execute(
-    'insert into journeydetails values("{}","{}","{}","{}","{}","{}","{}","{}")'.format(passenger2, DOB2, boardpass,
-                                                                                        passport2,
+    'insert into journeydetails values("{}","{}","{}","{}","{}","{}","{}","{}","{}","{}")'.format(passenger2, DOB2, boardpass,
+                                                                                        passport2,departure,destination,
                                                                                         airline_Timing.chosen,
                                                                                         airline_Timing.listTime,
                                                                                         travelDate,
                                                                                         flnum))
+cur.execute('insert into BPass values("{}")'.format(boardpass))
 con.commit()
 
 print("~~~YOUR TICKET HAS BEEN BOOKED SUCCESSFULLY. YOUR TICKET NUMBER IS AX", str(boardpass), "~~~")

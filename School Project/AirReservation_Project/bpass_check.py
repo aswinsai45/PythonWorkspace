@@ -1,57 +1,35 @@
-import datetime
 import mysql.connector as connector
-import itertools
+import datetime
 
+
+
+def timeformatter(date):
+    d = datetime.datetime.strftime(date, "%Y-%m-%d")
+    return d
+
+boardingPass = input('Enter boarding pass number here: ')
 con = connector.connect(user='root', host='localhost', password='mySQL1234$s-10763', database='tickets')
 cur = con.cursor()
-cur.execute('Select * from journeydetails where boardingpass = 3389 ')
+cur.execute('Select * from journeydetails where boardingpass = "{}"'.format(boardingPass))
 v = cur.fetchall()
 
-l = []
-
-# length = [8]
-#
-# modlist = [list(itertools.islice(l, elem))
-#         for elem in length]
+p = 0
 for row in v:
+    l = []
     for col in row:
         l.append(col)
-#
 
-# print(l)
-print()
-print()
+    print('Name: ', l[0])
+    date1 = l[1]
+    print('Date of Birth: ', timeformatter(date1))
+    print('Boarding Pass Number: ', l[2])
+    print('Passport Number: ', l[3])
+    print('Departure Location: ', l[4])
+    print('Destination Location: ', l[5])
+    print('Airline: ', l[6])
+    print('Departure Time: ', l[7])
+    date2 = l[8]
+    print('DepartureDate: ', timeformatter(date2))
+    print('Flight Number: ', l[9])
+    print('\n\n')
 
-
-l = []
-l2 = []
-def passengerlist(l, n=8):
-    global l2
-    for j in range(0, len(l), n):
-        l2 = l[j:j + n]
-    l = l2
-    print(l)
-
-passengerlist(l)
-
-
-
-
-# length = 8
-# modlist = [list(itertools.islice(l, elem))
-#         for elem in length]
-# print(modlist)
-# def timeformatter(date):
-#     d = datetime.datetime.strftime(date, "%Y-%m-%d")
-#     print(d)
-#
-# date = l[1]
-# timeformatter(date)
-
-
-# print(l[1])
-# date = l[1]
-# d = datetime.datetime.strftime(date, "%Y-%m-%d")
-#
-# print(d)
-#

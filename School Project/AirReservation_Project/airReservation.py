@@ -8,18 +8,6 @@ def timeformatter(date):
     d = datetime.datetime.strftime(date, "%Y-%m-%d")
     return d
 
-
-# l = []
-# l2 = []
-# def passengerlist(l, n=8):
-#     global l2, ll
-#     for j in range(0, len(l), n):
-#         l2 = l[j:j + n]
-#     l = l2
-#
-# passengerlist(l)
-
-
 action = {1: "Book a ticket", 2: "Retrieve a ticket", 3: "Cancel a ticket"}
 
 print(action)
@@ -38,7 +26,7 @@ if userEnter == 1:
     elif ch == 3:
         import threepersons
     else:
-        print("Sorry unavailable as of now. Thanks for understanding!")
+        print("Sorry, unavailable as of now. Thanks for understanding!")
         exit()
 
 # retrieves a ticket
@@ -50,34 +38,45 @@ elif userEnter == 2:
     cur.execute('Select * from journeydetails where boardingpass = "{}"'.format(boardingPass))
     v = cur.fetchall()
 
-    p = 0
     for row in v:
         l = []
         for col in row:
             l.append(col)
 
-        print('Name = ', l[0])
+        print('Name: ', l[0])
         date1 = l[1]
         print('Date of Birth: ', timeformatter(date1))
         print('Boarding Pass Number: ', l[2])
         print('Passport Number: ', l[3])
-        print('Airline: ', l[4])
-        print('Departure: ', l[5])
-        date2 = l[6]
+        print('Departure Location: ', l[4])
+        print('Destination Location: ', l[5])
+        print('Airline: ', l[6])
+        print('Departure Time: ', l[7])
+        date2 = l[8]
         print('DepartureDate: ', timeformatter(date2))
-        print('Flight Number: ', l[7])
+        print('Flight Number: ', l[9])
         print('\n\n')
+
 
 
 
 # Cancels a ticket
 
 elif userEnter == 3:
+
     print("~~You have chose to cancel a ticket~~")
     boardingPassCancel = input('Please enter boarding pass number here: ')
     con = connector.connect(user='root', host='localhost', password='mySQL1234$s-10763', database='tickets')
-    cur = con.cursor()
-    cur.execute('delete from journeydetails where boardingpass = "{}")'.format(boardingPassCancel))
+    cur = con.cursor(buffered=True)
+    cur.execute('select * from journeydetails where boardingpass = "{}"'.format(boardingPassCancel))
+    v = cur.fetchall()
+    if v == []:
+        print('BoardingPass Incorrect/Not Found')
+
+    else:
+        cur.execute('delete from journeydetails where boardingpass = "{}"'.format(boardingPassCancel))
+        con.commit()
+        print('Successfully Cancelled Ticket :(')
 
 else:
     print('Sorry command not available. Try Again')

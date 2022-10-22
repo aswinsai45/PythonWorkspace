@@ -66,6 +66,12 @@ print("Now Enter your Destination Location below\n")
 destinationCountry = input("Destination Country?: ")
 destinationCity = input("Destination City?: ")
 
+
+departure =  departureCity + ', ' +departureCountry
+destination = destinationCity + ', ' +destinationCountry
+
+
+
 k = 0
 passportNumber = ''
 if str(departureCountry) != str(destinationCountry):
@@ -102,12 +108,15 @@ con = mysql.connector.connect(user='root', host='localhost', password='mySQL1234
 cur = con.cursor()
 
 cur.execute(
-    'insert into journeydetails values("{}","{}","{}","{}","{}","{}","{}","{}")'.format(passenger1, DOB, boardpass,
-                                                                                        passportNumber,
+    'insert into journeydetails values("{}","{}","{}","{}","{}","{}","{}","{}","{}","{}")'.format(passenger1, DOB, boardpass,
+                                                                                        passportNumber, departure,destination,
                                                                                         airline_Timing.chosen,
                                                                                         airline_Timing.listTime,
                                                                                         travelDate,
                                                                                         flnum))
+
+cur.execute('insert into BPass values("{}")'.format(boardpass))
+
 con.commit()
 
 print("~~~YOUR TICKET HAS BEEN BOOKED SUCCESSFULLY. YOUR TICKET NUMBER IS AX", boardpass, "~~~")
