@@ -1,22 +1,25 @@
 import mysql.connector as connector
 import datetime
 
-print("\n\nWelcome to FlightBook, how can we help you today?: \n")
+print("\n\nBook Flights with Ease with Breeze! How can we help you today?\n")
 
 
 def timeformatter(date):
     d = datetime.datetime.strftime(date, "%Y-%m-%d")
     return d
 
-action = {1: "Book a ticket", 2: "Retrieve a ticket", 3: "Cancel a ticket"}
+
+action = {1: "Book a ticket", 2: "Retrieve a ticket", 3: "Cancel a ticket", 4: "ADMIN CONTROL"}
 
 print(action)
 userEnter = int(input("\nEnter the Index: "))
 dictAccess = action[userEnter]
 print(dictAccess)
 
+
 # Books a Ticket
-if userEnter == 1:
+
+def bookticket():
     print('~~You have chose to book a ticket~~')
     ch = int(input("\nEnter the number of people travelling [up-to 3]: "))
     if ch == 1:
@@ -29,8 +32,8 @@ if userEnter == 1:
         print("Sorry, unavailable as of now. Thanks for understanding!")
         exit()
 
-# retrieves a ticket
-elif userEnter == 2:
+
+def retrieveticket():
     print('~~You have chose to retrieve a ticket~~')
     boardingPass = input('Enter boarding pass number here: ')
     con = connector.connect(user='root', host='localhost', password='mySQL1234$s-10763', database='tickets')
@@ -58,12 +61,7 @@ elif userEnter == 2:
         print('\n\n')
 
 
-
-
-# Cancels a ticket
-
-elif userEnter == 3:
-
+def cancelticket():
     print("~~You have chose to cancel a ticket~~")
     boardingPassCancel = input('Please enter boarding pass number here: ')
     con = connector.connect(user='root', host='localhost', password='mySQL1234$s-10763', database='tickets')
@@ -78,6 +76,18 @@ elif userEnter == 3:
         con.commit()
         print('Successfully Cancelled Ticket :(')
 
+
+if userEnter == 1:
+    bookticket()
+
+elif userEnter == 2:
+    retrieveticket()
+
+elif userEnter == 3:
+    cancelticket()
+
+elif userEnter == 4:
+    import admin
 else:
     print('Sorry command not available. Try Again')
     exit()

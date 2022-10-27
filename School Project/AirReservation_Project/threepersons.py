@@ -171,4 +171,4 @@ cur.execute(
 con.commit()
 
 cur.execute('insert into BPass values("{}")'.format(boardpass))
-print("~~~YOUR TICKET HAS BEEN BOOKED SUCCESSFULLY. YOUR TICKET NUMBER IS AX", (boardpass), "~~~")
+print("~~~YOUR TICKET HAS BEEN BOOKED SUCCESSFULLY. YOUR TICKET NUMBER IS ", (boardpass), "~~~")
