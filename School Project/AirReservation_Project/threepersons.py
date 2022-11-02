@@ -3,15 +3,14 @@ import random
 import mysql.connector
 import time
 
-def progress(percent=0, width=30):
+def progress(percent=10, width=30):
     # The number of hashes to show is based on the percent passed in. The
     # number of blanks is whatever space is left after.
     hashes = width * percent // 100
     blanks = width - hashes
 
-    print('\r[', hashes * '*', blanks * ' ', ']', f' {percent:.0f}%', sep='', end='', flush=True)
-
-    print('This will take a moment\n Get Ready to Fly!')
+    print('\r[', hashes*'*', blanks*' ', ']', f' {percent:.0f}%', sep='',
+        end='', flush=True)
 
 
 def valid1(x):
@@ -68,7 +67,7 @@ while True:
     if valid2(validDOB):
         break
 
-print('\n DEPARTURE AND DESTINATION: ')
+
 travelDate = (input("Enter departure date in yyyy-mm-dd format "))
 travelValidation = datetime.datetime.strptime(travelDate, "%Y-%m-%d").date()
 while True:
@@ -131,6 +130,9 @@ if k == 0:
 import airline_Timing
 
 import payment
+
+print('Breezing through our servers and finalizing!')
+print('This will take a moment\n Get Ready to Fly!')
 
 for i in range(101):
     progress(i)

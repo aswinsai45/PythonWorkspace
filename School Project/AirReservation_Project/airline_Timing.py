@@ -11,6 +11,22 @@ print('The available airlines are: ', '\n', listofairlines)
 
 while True:
     airline = int(input("Enter airline Index: "))
+    if airline == 1:
+        pr = "AI"
+    elif airline == 2:
+        pr = "UA"
+    elif airline == 3:
+        pr = "EK"
+    elif airline == 4:
+        pr = "EY"
+    elif airline == 5:
+        pr = "QTR"
+    elif airline == 6:
+        pr = "6E"
+    elif airline == 7:
+        pr = "SG"
+    elif airline == 8:
+        pr = "UKV"
     print('You have chose: ' + listofairlines[airline])
     if airline in listofairlines.keys():
         break
@@ -41,22 +57,6 @@ chosen = ''
 
 while True:
     userEnter = int(input("Enter the index: "))
-    if userEnter == 1:
-        pr = "AI"
-    elif userEnter == 2:
-        pr = "UA"
-    elif userEnter == 3:
-        pr = "EK"
-    elif userEnter == 4:
-        pr = "EY"
-    elif userEnter == 5:
-        pr = "QTR"
-    elif userEnter == 6:
-        pr = "6E"
-    elif userEnter == 7:
-        pr = "SG"
-    elif userEnter == 8:
-        pr = "UKV"
     listTime = times[userEnter]
     print(listTime)
     if userEnter in times.keys():

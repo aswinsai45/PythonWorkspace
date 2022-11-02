@@ -1,7 +1,7 @@
 import mysql.connector as connector
 
 con = connector.connect(user='root', host='localhost', password='mySQL1234$s-10763')
-cur = con.cursor()
+cur = con.cursor(buffered=True)
 
 
 def createdatabase():
@@ -9,6 +9,7 @@ def createdatabase():
         cur.execute('CREATE DATABASE STUDENT;')
         cur.execute('USE STUDENT;')
         con.commit()
+        print('Database created successfully')
 
     except connector.errors.DatabaseError:
         print('Database Already Exists!')
@@ -61,14 +62,60 @@ def insertMarksDetails():
 
 def updateMarksDetails():
     id = int(input('Enter ID to change marks: '))
-    sub = input('Enter SubjectNum to change mark: ')
+    subn = input('Enter SubjectNum to change mark: ')
     newmark = float(input('Enter New Mark: '))
 
+    sub = 'sub'+subn
     cur.execute('use student;')
     cur.execute(
-        'update marksdetails set "{}" = {} where ID = {} and "{}" in (sub1, sub2, sub3, sub4, sub5);)'.format(sub, newmark, id, sub))
+        'update marksdetails set {} = {} where ID = {}'.format(sub, newmark, id))
     con.commit()
 
-    cur.execute('update marksdetails set average = (sub1+sub2+sub3+sub4+sub5/5) and total = sub1+sub2+sub3+sub4+sub5 where ID = {}'.format(id))
 
-updateMarksDetails()
+    cur.execute('update marksdetails set average = (sub1+sub2+sub3+sub4+sub5/5)')
+    cur.execute('update marksdetails set total = sub1+sub2+sub3+sub4+sub5 where ID = {}'.format(id))
+    con.commit()
+
+def displaystudent():
+    cur.execute('SELECT * FROM STUDENTDETAILS;')
+    v = cur.fetchall()
+    if v:
+        for i in v:
+            print(i)
+    else:
+        print('Table Empty')
+
+def displaymark():
+    cur.execute('SELECT * FROM MARKSDETAILS;')
+    v = cur.fetchall()
+    if v:
+        for i in v:
+            print(i)
+    else:
+        print('Table empty')
+
+
+print('1. Create Database\n2. Create Tables\n3. Insert Student Details\n4. Inser Mark Details\n5. Update Marks\n6. Display Student Table\n7. Display Mark Table\n8. Exit')
+
+while True:
+    ch = int(input('Enter choice: '))
+    if ch == 1:
+        createdatabase()
+    elif ch == 2:
+        createtable()
+    elif ch == 3:
+        insertStudentDetails()
+    elif ch == 4:
+        insertMarksDetails()
+    elif ch == 5:
+        updateMarksDetails()
+    elif ch == 6:
+        displaystudent()
+    elif ch == 7:
+        displaymark()
+    elif ch == 8:
+        print('Thank you')
+        break
+    else:
+        print('PLease enter a valid choice')
+

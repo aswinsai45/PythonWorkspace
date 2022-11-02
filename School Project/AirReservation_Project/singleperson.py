@@ -93,7 +93,9 @@ import airline_Timing
 
 import payment
 
-print('This will take a moment')
+print('Breezing through our servers and finalizing!')
+print('This will take a moment\n Get Ready to Fly!')
+
 for i in range(101):
     progress(i)
     time.sleep(0.1)
@@ -118,5 +120,6 @@ cur.execute(
 cur.execute('insert into BPass values("{}")'.format(boardpass))
 
 con.commit()
+
 
 print("~~~YOUR TICKET HAS BEEN BOOKED SUCCESSFULLY. YOUR TICKET NUMBER IS ", boardpass, "~~~")

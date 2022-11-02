@@ -53,7 +53,6 @@ while True:
     if valid2(validDOB):
         break
 
-print('\n DEPARTURE AND DESTINATION: ')
 while True:
     travelDate = (input("Enter departure date in yyyy-mm-dd format "))
     travelValidation = datetime.datetime.strptime(travelDate, "%Y-%m-%d").date()
@@ -109,6 +108,7 @@ import airline_Timing
 
 import payment
 
+print('Breezing through our servers and finalizing!')
 print('This will take a moment\n Get Ready to Fly!')
 for i in range(101):
     progress(i)

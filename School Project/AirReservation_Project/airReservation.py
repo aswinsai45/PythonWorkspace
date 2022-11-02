@@ -1,7 +1,7 @@
 import mysql.connector as connector
 import datetime
 
-print("\n\nBook Flights with Ease with Breeze! How can we help you today?\n")
+print("\n\nBook Flights with Ease on BREEZE! How can we help you today?\n")
 
 
 def timeformatter(date):
