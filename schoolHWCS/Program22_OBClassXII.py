@@ -25,11 +25,14 @@ def createtable():
             'CREATE TABLE MARKSDETAILS(ID INT, EXAMNAME VARCHAR(30), SUB1 float, SUB2 float, SUB3 float, SUB4 float, SUB5 float, TOTAL float, AVERAGE FLOAT, GRADE VARCHAR(3));')
         con.commit()
 
+        print('Tables created successfully')
+
     except connector.errors.ProgrammingError:
         print('Tables already exist!')
 
 
 def insertStudentDetails():
+    print()
     ID = int(input('Enter Student ID: '))
     name = input('Enter Name: ')
     age = int(input('Enter Age: '))
@@ -104,9 +107,13 @@ while True:
     elif ch == 2:
         createtable()
     elif ch == 3:
-        insertStudentDetails()
+        print('Have to enter atleast 5 datas\n')
+        for i in range(5):
+            insertStudentDetails()
     elif ch == 4:
-        insertMarksDetails()
+        print('Have to enter atleast 5 datas\n')
+        for i in range(5):
+            insertMarksDetails()
     elif ch == 5:
         updateMarksDetails()
     elif ch == 6:
