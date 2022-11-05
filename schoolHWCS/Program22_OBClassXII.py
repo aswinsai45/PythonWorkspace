@@ -98,7 +98,7 @@ def displaymark():
         print('Table empty')
 
 
-print('1. Create Database\n2. Create Tables\n3. Insert Student Details\n4. Inser Mark Details\n5. Update Marks\n6. Display Student Table\n7. Display Mark Table\n8. Exit')
+print('1. Create Database\n2. Create Tables\n3. Insert Student Details\n4. Insert Mark Details\n5. Update Marks\n6. Display Student Table\n7. Display Mark Table\n8. Exit')
 
 while True:
     ch = int(input('Enter choice: '))
@@ -107,12 +107,18 @@ while True:
     elif ch == 2:
         createtable()
     elif ch == 3:
-        print('Have to enter atleast 5 datas\n')
-        for i in range(5):
+        o = cur.fetchall()
+        if not o:  # if o == [], i.e. o is empty
+            for i in range(5):
+                insertStudentDetails()
+        else:
             insertStudentDetails()
     elif ch == 4:
-        print('Have to enter atleast 5 datas\n')
-        for i in range(5):
+        k = cur.fetchall()
+        if not k:  # if k == [], i.e. k is empty
+            for i in range(5):
+                insertMarksDetails()
+        else:
             insertMarksDetails()
     elif ch == 5:
         updateMarksDetails()
