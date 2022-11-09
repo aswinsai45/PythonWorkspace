@@ -58,16 +58,15 @@ def insertcustomer():
     con.commit()
 
 def total():
-    cur.execute('select cname, isbn, purchaseqty, price, purchaseqty*price as totalprice '
-                'from bookdetails'
-                'natural join customerdetails'
-                'order by cname;')
+    cur.execute('use bookstore;')
+    cur.execute('select cname, isbn, purchaseqty, price, purchaseqty*price as totalprice from bookdetails natural join customerdetails order by cname;')
     v = cur.fetchall()
     for i in v:
         print(i)
 
 def display():
     print()
+    cur.execute('use bookstore;')
     print('BOOKDETAILS TABLE~')
     cur.execute('SELECT * FROM BOOKDETAILS;')
     v = cur.fetchall()
@@ -89,12 +88,14 @@ def display():
 print('1. Create Database\n2. Create Tables\n3. Insert Book\n4. Insert Customer\n5. Total Books Purchased\n6. Display Both Tables\n7. Exit')
 
 while True:
-    ch = int(input('Enter choice: '))
+    ch = int(input('\nEnter choice: '))
     if ch == 1:
         createdatabase()
     elif ch == 2:
         createtable()
     elif ch == 3:
+        cur.execute('use bookstore;')
+        cur.execute('select * from bookdetails;')
         o = cur.fetchall()
         if not o:  # if o == [], i.e. o is empty
             for i in range(5):
@@ -102,6 +103,8 @@ while True:
         else:
             insertbook()
     elif ch == 4:
+        cur.execute('use bookstore;')
+        cur.execute('select * from customerdetails')
         k = cur.fetchall()
         if not k:  # if k == [], i.e. k is empty
             for i in range(5):

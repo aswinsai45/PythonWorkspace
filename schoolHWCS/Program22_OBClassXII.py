@@ -5,6 +5,7 @@ cur = con.cursor(buffered=True)
 
 
 def createdatabase():
+    print()
     try:
         cur.execute('CREATE DATABASE STUDENT;')
         cur.execute('USE STUDENT;')
@@ -16,6 +17,7 @@ def createdatabase():
 
 
 def createtable():
+    print()
     try:
         cur.execute('use student;')
         cur.execute(
@@ -45,6 +47,7 @@ def insertStudentDetails():
 
 
 def insertMarksDetails():
+    print()
     ID = int(input('Enter ID: '))
     exam = input('Enter Exam Name: ')
     sub1 = float(input('Sub1 marks: '))
@@ -64,6 +67,7 @@ def insertMarksDetails():
 
 
 def updateMarksDetails():
+    print()
     id = int(input('Enter ID to change marks: '))
     subn = input('Enter SubjectNum to change mark: ')
     newmark = float(input('Enter New Mark: '))
@@ -80,6 +84,7 @@ def updateMarksDetails():
     con.commit()
 
 def displaystudent():
+    print("Student Table~")
     cur.execute('SELECT * FROM STUDENTDETAILS;')
     v = cur.fetchall()
     if v:
@@ -89,6 +94,7 @@ def displaystudent():
         print('Table Empty')
 
 def displaymark():
+    print('Mark Table~')
     cur.execute('SELECT * FROM MARKSDETAILS;')
     v = cur.fetchall()
     if v:
@@ -101,7 +107,7 @@ def displaymark():
 print('1. Create Database\n2. Create Tables\n3. Insert Student Details\n4. Insert Mark Details\n5. Update Marks\n6. Display Student Table\n7. Display Mark Table\n8. Exit')
 
 while True:
-    ch = int(input('Enter choice: '))
+    ch = int(input('\nEnter choice: '))
     if ch == 1:
         createdatabase()
     elif ch == 2:
