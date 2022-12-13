@@ -1,8 +1,10 @@
 import random
+
 ODD_Q, EVEN_Q = [], []
 
+
 def enq():
-    r = random.randint(1,500)
+    r = random.randint(1, 500)
     if r % 2 == 0:
         if r not in EVEN_Q:
             EVEN_Q.append(r)
@@ -14,11 +16,13 @@ def enq():
         else:
             enq()
 
+
 def deq_odd():
     if ODD_Q:
         print(ODD_Q.pop(0))
     else:
         print('Underflow')
+
 
 def srEVEN_Q():
     if EVEN_Q:
@@ -32,6 +36,7 @@ def srEVEN_Q():
             print('Value not present')
     else:
         print('Underflow')
+
 
 def display():
     print('1. Display Even\n2. Display Odd')
@@ -50,7 +55,9 @@ def display():
             print('Underflow')
     else:
         print('Please enter a valid choice')
-print('1.Enqueue\n2. Dequeue from ODD\n3. Search from EVEN\n4. Display respectively\n5. Exit')
+
+
+print('1. Enqueue\n2. Dequeue from ODD\n3. Search from EVEN\n4. Display respectively\n5. Exit')
 while True:
     ch = int(input('Enter your choice here: '))
     if ch == 1:
@@ -65,4 +72,4 @@ while True:
         print('\nThank You')
         break
     else:
-        print('PLease enter a valid choice')
+        print('Please enter a valid choice')

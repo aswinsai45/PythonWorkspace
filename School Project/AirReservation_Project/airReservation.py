@@ -9,7 +9,7 @@ def timeformatter(date):
     return d
 
 
-action = {1: "Book a ticket", 2: "Retrieve a ticket", 3: "Cancel a ticket", 4: "ADMIN CONTROL"}
+action = {1: "Book a ticket", 2: "Retrieve a ticket", 3: "Cancel a ticket", 4: "ADMIN CONTROL", 5: "Exit"}
 
 print(action)
 userEnter = int(input("\nEnter the Index: "))
@@ -88,6 +88,9 @@ elif userEnter == 3:
 
 elif userEnter == 4:
     import admin
+elif userEnter == 5:
+    print('Exiting..')
+    exit()
 else:
     print('Sorry command not available. Try Again')
     exit()

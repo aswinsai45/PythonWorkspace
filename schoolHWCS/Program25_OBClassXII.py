@@ -60,10 +60,12 @@ def delete():
 
 def deletepermanent():
     print()
-    cur.execute('drop table passengerdetails')
-    cur.execute('drop table flightdetails')
-
-    con.commit()
+    try:
+        cur.execute('drop table passengerdetails')
+        cur.execute('drop table flightdetails')
+        con.commit()
+    except:
+        print('Tables do not exist')
 
 print('1. Create Database\n2. Create Tables\n3. Insert FlightDetails\n4. Insert PassengerDetails\n5. Cancel Ticket\n6. DELETE BOTH TABLES!\n7. Exit')
 
