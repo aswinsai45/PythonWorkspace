@@ -6,10 +6,10 @@ import time
 def progress(percent=10, width=30):
     # The number of hashes to show is based on the percent passed in. The
     # number of blanks is whatever space is left after.
-    hashes = width * percent // 100
-    blanks = width - hashes
+    star = width * percent // 100
+    dot = width - star
 
-    print('\r[', hashes*'*', blanks*' ', ']', f' {percent:.0f}%', sep='',
+    print('\r[', star*'*', dot*'.', ']', f' {percent:.0f}%', sep='',
         end='', flush=True)
 
 
