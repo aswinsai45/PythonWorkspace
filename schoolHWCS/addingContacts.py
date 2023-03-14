@@ -1,18 +1,11 @@
-names = dict()
-i = 0
+f = open('crying.text', 'w')
+wr = "class xii ends soon\nbatch 23'"
 
-n = int(input("How many names and numbers do you want to enter?: "))
-while i in range(0, n):
-    nameDictionary = str(input("Enter name: "))
-    numberDictionary = str(input("Enter phone number: "))
-    nameStore = ("Name: ", nameDictionary) + ("Number: ", numberDictionary)
-    names = names + nameStore
-    i = i + 1
+f.write(wr)
 
-print(names)
+f.close()
 
-if uid == userID and pwd == passw:
-    print('login successful')
-else:
-    print('Credentials Incorrect')
-    return
+f = open('crying.text','r')
+r = f.readline()
+b = f.read(2)
+print(r,b,sep= ' ')
