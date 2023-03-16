@@ -1,11 +1,30 @@
-f = open('crying.text', 'w')
-wr = "class xii ends soon\nbatch 23'"
+import pickle, os
 
-f.write(wr)
+def write():
+    f = open('binpract.dat','wb')
+    name = input('Enter Name: ')
+    age = int(input('Enter age: '))
 
-f.close()
+    v = [name,age]
+    pickle.dump(v,f)
+    f.close()
+def read():
+    f = open('binpract.dat','rb')
+    try:
+        while True:
+            v = pickle.load(f)
+            print(v)
+    except:
+        print('\nDone')
 
-f = open('crying.text','r')
-r = f.readline()
-b = f.read(2)
-print(r,b,sep= ' ')
+def mod():
+    f = open('binpract.dat', 'rb')
+    try:
+        while True:
+            v = pickle.load(f)
+            print(v[0])
+
+    except:
+        print('done!')
+
+mod()
