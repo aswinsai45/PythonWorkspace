@@ -1,7 +1,8 @@
 import mysql.connector as connector
 
-con = connector.connect(host = 'localhost', username = 'root', password = 'mySQL1234$s-10763')
+con = connector.connect(host='localhost', username='root', password='mySQL1234$s-10763')
 cur = con.cursor()
+
 
 def create():
     try:
@@ -13,6 +14,8 @@ def create():
         print('Database exists!')
 
     con.commit()
+
+
 def insert():
     while True:
         n = input('Enter name: ')
@@ -24,17 +27,15 @@ def insert():
             break
     con.commit()
 
+
 def display():
     cur.execute('use sqlconn;')
     cur.execute('select * from namefav;')
-    v = cur.fetchone()
-    if v:
-        for i in v:
-            print(i)
-    else:
-        print('table empty')
+    v = cur.fetchall()
+    print(v)
 
-
+    rowct = cur.rowcount
+    print(rowct)
 display()
 
 con.close()

@@ -1,0 +1,409 @@
+PYTHON IMPS:
+Randint takes 2 arguments in which it includes both max and min value
+randrange takes 2 argument in which it takes only min value not the max one
+both requires two argument
+random.random takes no argument but gives a number btw 0 and 1
+split function splits the given string into multiple elements containing LIST in which
+each element Is seperated by the given input
+Partition splits onnly the first occuring string inputted
+in LIST INSERT operation the syntax is
+list=[1,2,3,4,5]
+list.insert(<index>,<element>)
+example:
+X=[2,3,45,6]
+X.insert(56,10)
+print(X)
+ans:[2,3,45,6,10]
+pop uses index value
+X.pop(3)
+print(X)
+[2,3,45,10]
+>>>t=(1,2,[3,4],5)
+>>>t[2][1]=3.14
+>>>print(t)
+>>>(1,2,[3,3.14],5)
+tup=("a","A","c")
+max(tup)
+c
+because the ASKII value of "c" is greater than "a" and "A"
+what are tokens they are the basic blocks of python for example
+if is a token that is , "if" is a key word and a token
+abc is a token ,abc is an identifier
+l="Python"
+l1=list(l)
+print(l1)
+["P","y","t","h","o","n"]
+5+6+"True"-error
+5+6+True=12
+a,b=8,6 valid
+a=b=9 valid
+a=4;b=5 valid
+a=4,b=5 not valid error(syntax error )
+A=[1,2,3,4,5]
+A.remove(<element>)
+A=[1,2,3,5]
+A.remove(A.index(3))
+ans:[1,3,4,5]
+functions: collection of statements used to perform a specific task
+-built-in
+len()
+int()
+type()
+print()
+id()
+-function defined in module
+-need to download the module
+MATH MODULE
+sin()
+cos()
+sqrt()
+ceil()
+floor()
+fabs()
+STATISTICS MODULE
+mean()
+median()
+mode()
+RANDOM MODULE
+randint(a,b)
+randrange(a,b)
+random(<no parameter>)
+-user-defined function
+def a():
+ <
+ code block >
+no of arguement shud be equal to number of parameter
+SCOPE OF A VARIABLE:
+scope of a variable is the portion of the program where it is recognised
+-local scope
+-global scope
+positional arguement means assigning a variable in the calling statement and in the
+function header....but default is specifying default values in the header
+f=open("a.txt","w")
+data=f.write("hello")
+print(data)
+#this print statement returns the number of characters written into the file
+in text file the written thing should be a string datatype and not anyother datatype
+write(string)#explicit back slash n needed for next line
+for writelines we can use sequence datatype
+f=open("a.txt","w")
+data=f.writelines(["hello"])
+print(data)
+output: None
+here also we cant use int we have to change to string and do it
+f=open("a.txt","w")
+f.writelines(["1","2"])
+output:
+12
+without closing the file in text mode data will not be written it will be only in a temp
+memory called buffer until u close the file
+else use
+f.flush()
+with mode of opening a text file
+with open("a.txt","r") as f:
+ print(f.read())
+automatically closes the file after the nested block of code
+pickling/serialisation: process of converting a series of data into stream of bytes
+before witing into the file(writing)
+unpickling is opp(reading)
+pickle.dump(a,f)-writing
+pickle.load(f)-reading
+loads only one record...use loop to extract full data
+import pickle
+rb wb ab.
+important to use try except here because eof concept is not undertaken here
+while reading or loading we have to use try except before
+but try exxcpet will be used when we use while loop while loading
+
+always remember to close the file if u are writing or reading data's into it to
+permanently store it in
+delimiter for csv is comma
+import csv
+reader object writer object
+.csv
+one record-<writer-object>.writerow()
+multiple record-<writer-object>.writerows()
+import csv
+f=open("a.csv","w")
+wo=csv.writer(f)
+we.writerow(["a","b","c"])
+while writing into a csv file always use newline=""
+f=open("a.csv","w",newline="")
+to avoid the unnecessary blank line
+CAUTION:
+while reading from csv we always get the output as a string data type:
+if we input the data in terms of int also it will show as a string while reading, so we
+have to explicitly covert them bakc into their own datatypes in order to check any
+inequality
+use
+next(ro) # wher ro is reader object to avoid the heading which us given whule
+checking for inequality
+ex:
+f=open("a.csv","r")
+ro=csv.reader(f)
+next(ro)
+print(len(list(ro)))
+f.close()
+diff btw r+ and w+ is inorder to use r+ file must be existing but no such case in w+
+NOTE:
+in creatinng files with f=open()
+f=open("mydata","w")
+this takes the file as text file
+that is if there is no extension the file is taken as a text file
+INFO about binary files:
+-information is stored the same format as info in memory
+-no character tranlation takes place
+-no delimiter/everylie doesnot end with newline char
+-pickle module is used for reading and writing
+in f.seek(offset,reference_point)
+offset says the no of bytes to be moved
+default value of reference point is zero
+the use of newline in csv is EOL translation is suppressed
+pickle.dump(<data>,<file_name>)
+how are the file path stored??
+example:
+C:\Users\gvsri\Desktop\PYTHON_FILES
+>>>a=b=0
+>>>
+#the above statement doesnot give any error
+text.replace(<old_word>,<new_word>)
+d={1:2,2:3,3:4}
+print(d.items())
+print(d.(keys))
+print(d.values())
+output:
+dict_items([(1, 2), (2, 3), (3, 4)])
+dict_keys([1,2,3])
+dict_values([2,3,4])
+DATA STRUCTURE:
+it represents how data is stored/organised in computer's memory
+a mechanism to store organise and access data
+STACK:LINEAR DATA STRUCTURE
+LIFO-LAST IN FIRST OUT
+overflow and underflow
+ ／＞ フ
+ | . . l
+ ／` ミ＿xノ
+ / |
+ / ヽ ﾉ
+-TRAVERSAL
+-INSERTION
+-DELETION
+-SEARCHING
+characteristics of stack:
+-LIFO
+-insertiona and deletion happens at one end and it is at the top of the stack
+application of stack :
+-reversal of a sequence
+-postfix evaluation
+-undo redo operations
+-browsing history
+-back traching algorithms
+CN
+colln of interconn computers called CN
+ADVANTAGES
+-RESOURCE SHARING
+ share to everyone
+-RELIABILITY
+ to keep a copy of one file onto another one , basically means protects
+-COST-EFFECTIVE
+ reduces cost
+-COMMUNICATION MEDIUM
+ anyone can send msg....cahnges done can be seen from any end
+TYPES OF NETWORK
+-PAN(personal area network)
+ short ranged <10 meters wireless or cables like ex:bluetooth
+-LAN(local area network)
+ confined toa small area >pan <5km ex:school building
+-MAN(metropolitan area network)
+ connect big cities, corporates offices
+-WAN(wide area netowork)
+ all over the world ex:internet
+SWITCHING TECHNIQUES:
+-CIRCUIT SWITCHING
+ defines a path btw two computers in which the packets can travel
+ takes time to establish path
+-PACKET SWITCHING
+ thru the established path the data packets move from one computer to another
+ no time lag....path is established, just moves
+CHANNEL
+ physical connection between or medium to transfer data from one point to another
+BANDWIDTH
+ bandwidth refers to the difference between the highest and lowest freq of a
+transmission channel
+DATA TRANSFER RATE
+ no.of bits sent in 1 second/amount of data transferred per second
+-bps bits per second
+-Bps bytes
+-Kbps kilo
+-Gbps giga
+-Tbps tera
+TOPOLOGY
+ art of aonnecting diff computers in a network
+-BUS
+ all nodes are connected to one main cable called backbone
+ADV:
+ easy to install
+ cost effective
+ failure of one node doesnt affect the network
+DISADV:
+ incase cable is fault entire network goes down
+ at one time only one node can transmit data
+-STAR
+ each node directly connectede to a hub/switch
+ADV:
+ easy to detech faults
+ one link fails network still functions
+DISADV:
+ failure of hub/switch crashes the entire network
+ requires more cable length than bus topology
+-TREE
+ combination of bus and star topology
+ADV:
+ offers easy way of network expansion
+ even if one network fails all others remain connected and works
+TRANSMISSION MEDIA
+GUIDED/WIRED:
+
+-TWISTED PAIR
+ two copper wires twisted togather (no electrical conduction )
+ADV:
+ inexpensive
+ easy to install and maintain
+DISADV:
+ low bandwidth
+ no long dist transfer
+-CO-AXIAL
+ one or more foil wire shields, used in cable wires
+ADV:
+ data transfer rate > twisted
+ cheap among MAN
+DISADV:
+ expensive > twisted
+ diifcult to manage
+-OPTICAL FIBRE
+ high security, long dist , high bandwidth but expensive
+UN-GUIDED/WIRELESS:
+-INFRARED
+ throughout a room but cant penetrate walls TV REMOTE
+-MICROWAVE
+ transmits thru oceans
+-RADIOWAVES
+ insecure,affected by climatic condn
+-SATELLITE
+ very large connected safe
+-DEVICES
+-MODEM
+ analog to digital
+-RJ-45
+ registered jack- physical connection
+-ETHERNET CARD
+ network interface card
+ establishes all imp connection with network
+-HUB(dumb)
+ connect several computers
+ sends data to all destinations
+-SWITCH(smart)
+ connects multiple devices
+ sends only to the req destination
+
+PEATER
+ amplifies the waek signals
+ used in >100 m
+-ROUTER
+ handles diff protocols
+-GATEWAY
+ connects dissimilar networks
+ a wall btw the system and the environment
+-WIFI CARD(wireless fidility)
+NETWORK PROTOCOLS
+-HTTP(hypertext transfer protocol)
+ client server
+-FTP (file transfer protocol)
+ transfer files from one comp to another
+-TCP/IP(transmission control protocol internet protocol)
+ correct data transfer btw client and server
+ breaks the data into diff packets or datagrams or chunks and sends it to the receiver
+and reassemble them back
+ IP is responsible for providing address for each computer it contains the data and
+destination IP address
+-PPP(point to point protocol)
+ directly connect computers point to point
+-SMTP(simple mail transfer protocol)
+ send msgs to others based on email address
+-POP3(post office protocol)
+ client server
+ can download and read the messages offline
+-VoIP(voice over internet protocol)
+ enables voice communication over internet
+ uses packet switching
+ (VIDEO CONFERENCING) IMAP(internet message access protocol)
+-TELNET
+ team viewer....access remote computers from whereever u are
+ client-server
+-WWW
+ protocols that allows u to access any document on net thru URL(uniform resource
+locator)
+-WEB BROWSER
+ a SOFTWARE usd to access the websites
+ ex: firefox google-chrome
+-WEB SERVER
+ responds to the req made by the web browser
+-URL(uniform resource locator)
+ each has a unique address
+ https://address//path
+-DOMAIN NAME
+ .com .in .gov .org these are called domain names that is type of domain
+-WEBPAGE
+ a single page in a website
+-WEBSITE
+ a collection of webpages
+-WEB PORTAL
+ hyperlinks to other websites
+ ex: google.com
+-WEB HOSTING
+ hosting a web server which is made available to any web browser
+-TYPES OF WEB HOSTING
+ -free hosting
+ -virtual or shared hosting
+ -dedicated hosting
+ -co-location hosting
+-HTML(hyper-text-markup-language)
+ tells the browser how data/text/image should be displayed
+ has predefined tags
+ doesnt need any closing tags
+ spaces are not considered
+ small errors are not taken
+ case insensitive
+
+-XML(extensible markup language)
+ used for defining a structured info
+ can create own tags
+ needs closing tags
+ spaces are considered
+ errors has no room
+ case sensitive
+
+-DHTML (dynamic HTML)
+ changes when time is changed....
+ ex: location time of the day
+TIPS FOR QUESTIONS ON CN
+-PLACE SERVER IN MOST NO OF COMPS
+-DRAW CABLE LAYOUT
+ -STAR AND BUS
+-HUB/SWITCH
+ AT ALL THE BUILDINGS/OFFLICE/WINGS
+-REPEATER
+ IN BTW TWO BUILDINGS WHERE DIST>70 METERS
+-MODEM
+ WHERE SERVER IS INSTALLED
+-FIREWALL
+ WHERE SECURITY IS REQ TO PROTECT FROM UNAUTHORISED
+COMPUTERS
+HIGH SPEED HIGH COST CONNECTION
+-OPTICAL FIBRE(WIRED) BEST WIRED
+-SATELLITE(WIRELESS) BEST WIRELESS
+ECONOMICALLY SUITABLE
+-BROADBAND/ETHERNET CABLE(WIRED)
+-RADIOWAVE/MICROWAVE(WIRELESS)
+RADIOWAVES ARE PREFERRED IN HILLY AREAS
