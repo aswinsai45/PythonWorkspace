@@ -9,8 +9,6 @@ print(k)
 m = v.swapcase()
 print(m)'''
 
-f = open('textfile2.txt','w')
-s = ['sai\n','bro\n','bobs\n']
+f = open("demofile3.txt", "w")
+f.writelines(["See you soon!", "\nOver and out."])
 
-print(f.writelines(s))
-f.close()
